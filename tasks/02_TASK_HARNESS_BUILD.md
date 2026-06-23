@@ -25,8 +25,10 @@
 - **live mode → signal-emulator.** Існуючий сервіс генерує сигнали в реальному часі.
 - **replay → існуючий backtesting.** Time-travel не потрібен: реплей історичного вікна
   робиться наявним механізмом бектесту, не власною машиною часу.
-- **Джерело режиму ринку → Base-States.** `/api/transition` + live snapshot, daily granularity.
-  Максимум 1 market belief update на добу (daily timeframe, between-day зміни не відстежуються).
+- **Джерело режиму ринку → Base-States.** Режими ОБЧИСЛЮЮТЬСЯ pipeline base-states поверх
+  OHLCV-свічок, НЕ лежать готовим файлом. Свічки: `~/wbprd_skufs/base-states/data/parquet/{whitebit,binance}/{ASSET}_USDT_1d.parquet`
+  (7 активів, daily). Шлях — через `config/data_sources.py`, не хардкодити. Свіжість звіряти
+  (`df.index.max()`) перед прогоном. Daily granularity → макс 1 market belief update/добу.
 - Оркестратор лишається stateless. Контекст історії інʼєктує harness-шар, не оркестратор.
 
 ---
@@ -121,17 +123,19 @@
 Початковий набір стратегій — з реальної бібліотеки (не синтетичний). Режим і просадка —
 історичні, реальні.
 
-### Формат рядка траєкторії
+### Формат рядка-точки (ПЛОСКИЙ — одиниця даних = точка)
 
-`(checkpoint, context, hidden_vector, action)`, де:
-- `checkpoint` — індекс тижня (0..11);
-- `context` — спостережуване: `{drawdown, regime (R1–R12), time_in_position, action_history}`
-  (ТІЛЬКИ поля, наявні і на проді);
-- `hidden_vector` — `{anxiety, trust, market_understanding, regime_awareness, exit_propensity}`
-  (внутрішнє, не виходить за межі харнесу);
-- `action` — один клас з action space §4.
+Згідно `harness/00_PROJECT_DATA_GENERATOR.md` §5: одиниця генерації — ПЛОСКИЙ рядок-точка
+(атом, таблиця істини). Траєкторія — похідне (group by `run_id`), окремо НЕ зберігається.
+Колонки (плоско, не вкладено):
+- мітки: `persona_id`, `run_id`, `checkpoint_idx` (0..N), `window_id`;
+- контекст (спостережуване, піде в кластеризацію): `drawdown`, `regime` (R1–R12),
+  `time_in_position`, `recent_action_history`;
+- прихований вектор (НЕ в кластеризацію, відповідь-ключ): `anxiety`, `trust`,
+  `market_understanding`, `regime_awareness`, `exit_propensity`;
+- ціль: `action` (один клас з §4).
 
-Накопичена таблиця: `persona × checkpoint × context × hidden_vector × action`.
+**Вихід:** таблиця точок у `data/` (git-ignored), формат parquet. НЕ комітити в repo.
 
 ---
 
@@ -142,6 +146,25 @@
 - **Рівень B (зовнішня, тільки коли є люди):** вектор НЕ валідується напряму. Валідується ПАТЕРН,
   який вектор породив: чи передбачає `(контекст → дія)` реальні дії WB. Так → вектор був корисною
   фікцією. Ні → викидаємо. Знімає пастку «задав тривогу → зміряв тривогу».
+
+---
+
+## 7a. Інтеграція з проєктом (організаційне — звірити перед кодом)
+
+- **Робоча машина — skufs.** Код харнесу і прогони — на skufs (`~/adaptive_aisa/harness/`),
+  не на MacBook-дзеркалі. Запуск через ssh skufs-mac-mini.
+- **Шляхи даних — через `config/data_sources.py`**, не хардкодити. Там єдине джерело істини.
+- **Python:** на skufs системний 3.9.6; pipeline base-states хоче 3.13. Для харнесу —
+  створити `.venv` (рішення docker-vs-venv для pipeline див. CLAUDE.md журнал). Код харнесу
+  має йти на наявному оточенні; залежності — у `harness/requirements.txt`.
+- **Свіжі режими:** перед прогоном підняти Docker Desktop на skufs і
+  `docker compose up pipeline` (генерує свіжі parquet на місці). Без цього — дані застарілі.
+- **Gates (CLAUDE.md) перед записом у `data/`:** жодного рядка без `regime`/`state_id`;
+  порожній контекст заборонено; прихований вектор НЕ присутній у спостережуваних колонках;
+  поріг розрізнюваності мірки заданий ДО прогону.
+- **Вихід прогонів** — `data/` (parquet, git-ignored). Звіти аналізу — `reports/`.
+- **Таск читається з `tasks/`**; спеки-описи — у `harness/` (PROJECT_DATA_GENERATOR, HANDOFF,
+  EXECUTION_ORDER, DRAFT_personas_and_axes).
 
 ---
 
@@ -161,5 +184,6 @@
 - **Не блокує харнес:** дефекти D1/D2/D11 (E_gap) ламають прод-частину, але харнес працює на
   історичних режимах Base-States, не на зіпсованих `benchmark_periods` оркестратора.
 - **Блокує старт:** крок 1 (канонічні стани з консенсусу) — потрібен для фінальних меж персон.
-- **Уточнити перед прогонами (кроки 4-5):** дата-діапазон `all_regimes.parquet` (OQ C1),
-  частка `user_id IS NULL` для рівня B (OQ B2/D2).
+- **Уточнити перед прогонами (кроки 4-5):** реальний набір drawdown-вікон (див.
+  `reports/drawdown_windows.md` — вже 25 вікон по 7 активах); частка `user_id IS NULL`
+  для рівня B (OQ B2/D2). `all_regimes.parquet` НЕ існує — режими рахує pipeline (див. §1).

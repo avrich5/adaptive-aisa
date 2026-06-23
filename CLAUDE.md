@@ -161,3 +161,12 @@ adaptive_aisa/
 - 62 файли, repo avrich5/adaptive-aisa, обидві машини синхронні.
 - 01 — DONE. Наступна за EXECUTION_ORDER: консенсус (tasks/CLAUDE_CODE_TASK_CONSENSUS.md),
   потім збірка генератора (tasks/02_TASK_HARNESS_BUILD.md).
+
+### 2026-06-23 — TASK 02 спеку вичищено від організаційних помилок
+- Виправлено в tasks/02_TASK_HARNESS_BUILD.md (зміст-ядро не чіпав):
+  - §1 джерело даних: `all_regimes.parquet` НЕ існує -> режими рахує pipeline поверх
+    {ASSET}_USDT_1d.parquet; шлях через config/data_sources.py.
+  - формат рядка: вкладений -> ПЛОСКИЙ рядок-точка (атом), посилання на PROJECT_DATA_GENERATOR §5.
+  - +розділ 7a Інтеграція з проєктом: skufs, config-шляхи, venv/docker, gates перед data/,
+    вихід у data/ (git-ignored), таск з tasks/ vs описи в harness/.
+  - залежності: all_regimes прибрано, додано посилання на reports/drawdown_windows.md (25 вікон).
