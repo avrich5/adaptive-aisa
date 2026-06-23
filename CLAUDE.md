@@ -153,3 +153,11 @@ adaptive_aisa/
   свіжими там, де треба. Дані = функція запущених сервісів, не синхронізація файлів.
 - УРОК: неінтерактивний `ssh host "which X"` бреше — PATH урізаний, не бачить Docker.app/Homebrew.
   Перевіряти через `ssh host "zsh -lc ..."`. Не робити висновок "X нема" з голого which.
+
+### 2026-06-23 — TASK 01 (PROJECT_SETUP) ЗАКРИТО
+- Усі 6 пунктів чек-листа виконано: інвентар, структура, .gitignore, README(точка входу+статус),
+  git+remote, _archive перенесено. Внутрішні лінки звірено grep — битих нема (згадки
+  synthetic_trader_harness у HANDOFF — історичний текст snapshot, не навігація).
+- 62 файли, repo avrich5/adaptive-aisa, обидві машини синхронні.
+- 01 — DONE. Наступна за EXECUTION_ORDER: консенсус (tasks/CLAUDE_CODE_TASK_CONSENSUS.md),
+  потім збірка генератора (tasks/02_TASK_HARNESS_BUILD.md).

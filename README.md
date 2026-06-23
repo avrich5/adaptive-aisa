@@ -17,9 +17,14 @@
 - `analysis/` — кластеризація + пошук патернів.
 - `reports/` — результати мірок.
 - `concept/`, `inventory/`, `personas/`, `experts/`, `sql_log/`, `scripts/` — аналітична база.
-- `tasks/` — спеки для Claude Code.
+- `tasks/` — ЄДИНА точка читання тасків для Claude Code.
+- `_archive/` — застарілі версії (superseded/snapshot), не чіпати.
 
 ## Межі
 - frv GitLab (`git.forvest.software`) — **READ-ONLY**. Писати тільки в `avrich5/adaptive-aisa`.
 - Робоча машина — skufs. MacBook — дзеркало.
 - Дані Base-States / WB — зовнішня залежність, у репо не копіюються.
+
+## Статус
+Фаза 0 (каркас). Репозиторій + обвязка готові; перший E2E-код (drawdown-вікна) пройшов.
+Наступний крок: `tasks/CLAUDE_CODE_TASK_CONSENSUS.md` (консенсус-таксономія) — передумова збірки генератора.
