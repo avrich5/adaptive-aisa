@@ -109,3 +109,18 @@ adaptive_aisa/
 - Джерело даних уточнено: OHLCV 7 активів × 2 біржі в base-states-dev/data/, режими рахує pipeline.
 - Playbook: ~/.claude/NEW_PROJECT_PLAYBOOK.md.
 - ВІДКРИТЕ далі: синхронізація MacBook-дзеркала; точка читання tasks для Claude Code; перший код E2E.
+
+### 2026-06-23 — сесію відпрацьовано E2E (нюанси для передачі)
+- **Синхронізація машин:** skufs = master (SSH push), MacBook = дзеркало (HTTPS pull,
+  `~/adaptive_aisa`, як home_services). Обидві на коміті 1a884c5. Стара
+  `~/wbprd_macbook/adaptive_aisa` (без git) — НЕ чіпати, це догіт-залишок.
+- **Точка читання тасків:** `tasks/` — ЄДИНА. 01/02_TASK перенесено з harness/ туди.
+  harness/ = лише описи (HANDOFF, EXECUTION_ORDER, PROJECT_DATA_GENERATOR, DRAFT).
+- **КРИТИЧНИЙ НЮАНС шляху даних:** parquet на skufs лежать у
+  `~/wbprd_skufs/base-states/data/parquet/{whitebit,binance}/`, НЕ у wbprd_macbook
+  (то був MacBook-шлях, на якому дивився Claude). Канонічний шлях — у `config/data_sources.py`.
+- **Перший код E2E пройшов:** `analysis/drawdown_windows.py` читає реальні свічки →
+  26 drawdown-вікон по 7 активах → `reports/drawdown_windows.md`. pandas 2.3.3/pyarrow на skufs є.
+- **Хуки перевірено вживую:** preflight видає валідний JSON; postflight робить бекап + B2 sync.
+- **Наступний крок:** консенсус-таксономія (tasks/CLAUDE_CODE_TASK_CONSENSUS.md) — передумова
+  збірки генератора (tasks/02_TASK_HARNESS_BUILD.md).
