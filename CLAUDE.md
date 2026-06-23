@@ -142,11 +142,14 @@ adaptive_aisa/
   fetch->classify->output), монтує `./data:/app/data` -> пише parquet у
   `~/wbprd_skufs/base-states/data/parquet/` НА МІСЦІ.
 - Команда генерації: `python -m pipeline.main --market all` (entrypoint Dockerfile.pipeline).
-- БЛОКЕР зараз: `docker` на skufs НЕ встановлено -> compose не підняти. Тому parquet застрягли
-  на 06-02. Мій scp 06-22 — КОСТИЛЬ, не рішення.
+- БЛОКЕР зараз: docker ВСТАНОВЛЕНО (/usr/local/bin/docker -> Docker.app), але DAEMON не запущено
+  (Docker Desktop не в процесах, сокет ~/.docker/run/docker.sock відсутній). Тобто "docker завис/не
+  піднятий", НЕ "docker нема". Підняти Docker Desktop -> compose запрацює. scp 06-22 — КОСТИЛЬ.
 - Pipeline хоче python 3.13 (Dockerfile), на skufs системний 3.9.6 -> прямий запуск без docker
   під питанням сумісності.
-- ВИБІР (до реальних прогонів harness): (а) поставити docker на skufs і гнати compose, або
-  (б) підняти pipeline-python у venv 3.13. Обрати ОДИН шлях, костиль-scp прибрати.
+- РІШЕННЯ: стартувати Docker Desktop на skufs -> `docker compose up pipeline` -> свіжі parquet на місці.
+  Venv 3.13 — запасний шлях, якщо docker небажаний. Костиль-scp прибрати після першого compose-прогону.
 - Принцип: всі сервіси ~/wbprd_skufs можна підняти локально на skufs; тоді дані генеруються
   свіжими там, де треба. Дані = функція запущених сервісів, не синхронізація файлів.
+- УРОК: неінтерактивний `ssh host "which X"` бреше — PATH урізаний, не бачить Docker.app/Homebrew.
+  Перевіряти через `ssh host "zsh -lc ..."`. Не робити висновок "X нема" з голого which.
