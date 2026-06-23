@@ -1,0 +1,476 @@
+{
+  "meta": {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "schema_version": "1.0",
+    "part_number": 1,
+    "total_parts": 1,
+    "content_type": "full"
+  },
+  "states": [
+    {
+      "id": "panic_position_holder",
+      "one_liner": "Має відкриту позицію в просадці, шукає що робити прямо зараз",
+      "expected_traffic_share_pct": 12,
+      "typical_server_context": {
+        "balance_usdt_range": [500, 5000],
+        "has_open_positions": "true",
+        "positions_pnl_state": "loss",
+        "risk_preference": ["medium", "risky"],
+        "has_active_strategies": "sometimes",
+        "active_strategies_count_range": [0, 1]
+      },
+      "emotional_tone": "anxiety",
+      "behavioral_patterns": {
+        "typing_style": "fragments",
+        "typo_frequency": "frequent",
+        "language_mix": "mixed_ru_en",
+        "profanity": "rare",
+        "avg_messages_per_session": 6,
+        "avg_session_duration_minutes": 4,
+        "repeat_rate_pct": 60
+      },
+      "typical_questions": [
+        "блін шо з солою",
+        "выходить или ждать",
+        "сольет?",
+        "поможи срочно SOL -8%",
+        "что делать если в минусе уже",
+        "стопить или докупать",
+        "норм цена для входа?"
+      ],
+      "post_response_actions": [
+        {"action": "ask_followup", "probability_pct": 50},
+        {"action": "click_card", "probability_pct": 20},
+        {"action": "ignore", "probability_pct": 20},
+        {"action": "leave_chat", "probability_pct": 10}
+      ],
+      "state_transitions": [
+        {"to": "panic_position_holder", "trigger": "відповідь не заспокоїла", "probability_pct": 40},
+        {"to": "angry_liquidated_complainer", "trigger": "позиція пішла ще нижче і ліквідувало", "probability_pct": 30},
+        {"to": "passive_hodler", "trigger": "вирішив просто холдити до кінця", "probability_pct": 30}
+      ]
+    },
+    {
+      "id": "fomo_chaser",
+      "one_liner": "Бачить памп монети, хоче зайти на все і одразу",
+      "expected_traffic_share_pct": 15,
+      "typical_server_context": {
+        "balance_usdt_range": [1000, 10000],
+        "has_open_positions": "sometimes",
+        "positions_pnl_state": "mixed",
+        "risk_preference": ["risky"],
+        "has_active_strategies": "false",
+        "active_strategies_count_range": [0, 0]
+      },
+      "emotional_tone": "greed",
+      "behavioral_patterns": {
+        "typing_style": "shouting",
+        "typo_frequency": "rare",
+        "language_mix": "mixed_ru_en",
+        "profanity": "rare",
+        "avg_messages_per_session": 4,
+        "avg_session_duration_minutes": 2,
+        "repeat_rate_pct": 20
+      },
+      "typical_questions": [
+        "PEPE летит что делать??",
+        "как зайти на иксы",
+        "давай стратегию на памп",
+        "шо ще взлетит сьогодні",
+        "плече 50х на біткоін як поставити",
+        "встигну ще чи вже пізно"
+      ],
+      "post_response_actions": [
+        {"action": "click_card", "probability_pct": 60},
+        {"action": "activate_strategy", "probability_pct": 20},
+        {"action": "ask_followup", "probability_pct": 10},
+        {"action": "leave_chat", "probability_pct": 10}
+      ],
+      "state_transitions": [
+        {"to": "fomo_chaser", "trigger": "продовжує шукати нові монети", "probability_pct": 50},
+        {"to": "panic_position_holder", "trigger": "купив на хаях і пішло вниз", "probability_pct": 40},
+        {"to": "news_scalper", "trigger": "перемикається на іншу новину", "probability_pct": 10}
+      ]
+    },
+    {
+      "id": "passive_hodler",
+      "one_liner": "Тримає спотові позиції, цікавиться пасивним доходом або довгостроковими трендами",
+      "expected_traffic_share_pct": 10,
+      "typical_server_context": {
+        "balance_usdt_range": [5000, 50000],
+        "has_open_positions": "true",
+        "positions_pnl_state": "profit",
+        "risk_preference": ["low"],
+        "has_active_strategies": "true",
+        "active_strategies_count_range": [1, 3]
+      },
+      "emotional_tone": "apathy",
+      "behavioral_patterns": {
+        "typing_style": "polite",
+        "typo_frequency": "none",
+        "language_mix": "uk",
+        "profanity": "none",
+        "avg_messages_per_session": 2,
+        "avg_session_duration_minutes": 1,
+        "repeat_rate_pct": 10
+      },
+      "typical_questions": [
+        "який відсоток по стейкінгу USDT",
+        "чи варто зараз фіксувати прибуток по BTC",
+        "як налаштувати автоінвестування",
+        "що краще депозит чи фармінг",
+        "прогноз на рік для ефіру"
+      ],
+      "post_response_actions": [
+        {"action": "click_card", "probability_pct": 40},
+        {"action": "ignore", "probability_pct": 40},
+        {"action": "ask_followup", "probability_pct": 10},
+        {"action": "leave_chat", "probability_pct": 10}
+      ],
+      "state_transitions": [
+        {"to": "passive_hodler", "trigger": "перевіряє баланс раз на тиждень", "probability_pct": 70},
+        {"to": "panic_position_holder", "trigger": "раптовий обвал ринку на 30%", "probability_pct": 20},
+        {"to": "strategy_optimizer", "trigger": "вирішив оптимізувати стейкінг", "probability_pct": 10}
+      ]
+    },
+    {
+      "id": "grid_bot_tinkerer",
+      "one_liner": "Налаштовує сіткових ботів, постійно міняє параметри",
+      "expected_traffic_share_pct": 8,
+      "typical_server_context": {
+        "balance_usdt_range": [2000, 20000],
+        "has_open_positions": "true",
+        "positions_pnl_state": "mixed",
+        "risk_preference": ["medium"],
+        "has_active_strategies": "true",
+        "active_strategies_count_range": [2, 5]
+      },
+      "emotional_tone": "calculation",
+      "behavioral_patterns": {
+        "typing_style": "verbose",
+        "typo_frequency": "rare",
+        "language_mix": "mixed_uk_ru",
+        "profanity": "none",
+        "avg_messages_per_session": 8,
+        "avg_session_duration_minutes": 15,
+        "repeat_rate_pct": 40
+      },
+      "typical_questions": [
+        "який діапазон для BTC сітки зараз краще",
+        "чому бот не відкриває угоди",
+        "як переставити сітку вище",
+        "порівняй ботів по ETH і SOL",
+        "скільки буде APY якщо змінити крок",
+        "чи можна додати маржу до бота"
+      ],
+      "post_response_actions": [
+        {"action": "click_card", "probability_pct": 40},
+        {"action": "activate_strategy", "probability_pct": 30},
+        {"action": "ask_followup", "probability_pct": 20},
+        {"action": "ignore", "probability_pct": 10}
+      ],
+      "state_transitions": [
+        {"to": "grid_bot_tinkerer", "trigger": "налаштовує наступного бота", "probability_pct": 60},
+        {"to": "strategy_optimizer", "trigger": "хоче проаналізувати загальну ефективність", "probability_pct": 30},
+        {"to": "panic_position_holder", "trigger": "ціна вийшла з діапазону", "probability_pct": 10}
+      ]
+    },
+    {
+      "id": "deposit_withdrawer_ops",
+      "one_liner": "Вирішує операційні питання: поповнення, вивід, мережі, комісії",
+      "expected_traffic_share_pct": 10,
+      "typical_server_context": {
+        "balance_usdt_range": [100, 10000],
+        "has_open_positions": "false",
+        "positions_pnl_state": "n/a",
+        "risk_preference": ["low"],
+        "has_active_strategies": "false",
+        "active_strategies_count_range": [0, 0]
+      },
+      "emotional_tone": "confusion",
+      "behavioral_patterns": {
+        "typing_style": "terse",
+        "typo_frequency": "rare",
+        "language_mix": "uk",
+        "profanity": "none",
+        "avg_messages_per_session": 3,
+        "avg_session_duration_minutes": 3,
+        "repeat_rate_pct": 30
+      },
+      "typical_questions": [
+        "яка комісія за вивід в TRC20",
+        "чому депозит не зараховується вже годину",
+        "яку мережу обрати для USDT",
+        "скільки йде вивід на карту",
+        "чи є ліміт на вивід без верифікації"
+      ],
+      "post_response_actions": [
+        {"action": "leave_chat", "probability_pct": 60},
+        {"action": "ignore", "probability_pct": 20},
+        {"action": "ask_followup", "probability_pct": 20}
+      ],
+      "state_transitions": [
+        {"to": "deposit_withdrawer_ops", "trigger": "знову потрібен вивід", "probability_pct": 80},
+        {"to": "curious_newbie", "trigger": "після поповнення вирішив подивитись що тут є", "probability_pct": 20}
+      ]
+    },
+    {
+      "id": "angry_liquidated_complainer",
+      "one_liner": "Щойно отримав ліквідацію або великий збиток, пише щоб виплеснути емоції",
+      "expected_traffic_share_pct": 8,
+      "typical_server_context": {
+        "balance_usdt_range": [10, 1000],
+        "has_open_positions": "false",
+        "positions_pnl_state": "loss",
+        "risk_preference": ["risky"],
+        "has_active_strategies": "false",
+        "active_strategies_count_range": [0, 0]
+      },
+      "emotional_tone": "frustration",
+      "behavioral_patterns": {
+        "typing_style": "shouting",
+        "typo_frequency": "heavy",
+        "language_mix": "mixed_ru_en",
+        "profanity": "frequent",
+        "avg_messages_per_session": 5,
+        "avg_session_duration_minutes": 5,
+        "repeat_rate_pct": 80
+      },
+      "typical_questions": [
+        "ви мене просто кинули",
+        "чому таке плече дали",
+        "скам биржа",
+        "де мої гроші",
+        "ви спеціально ціну вниз тягнули",
+        "поверніть кошти"
+      ],
+      "post_response_actions": [
+        {"action": "complain", "probability_pct": 60},
+        {"action": "leave_chat", "probability_pct": 30},
+        {"action": "ignore", "probability_pct": 10}
+      ],
+      "state_transitions": [
+        {"to": "angry_liquidated_complainer", "trigger": "продовжує писати те саме", "probability_pct": 70},
+        {"to": "fomo_chaser", "trigger": "вирішив відігратись", "probability_pct": 20},
+        {"to": "troll_or_bot_tester", "trigger": "розчарувався і почав флудити", "probability_pct": 10}
+      ]
+    },
+    {
+      "id": "curious_newbie",
+      "one_liner": "Тільки зареєструвався, тестує можливості ШІ та біржі",
+      "expected_traffic_share_pct": 12,
+      "typical_server_context": {
+        "balance_usdt_range": [0, 100],
+        "has_open_positions": "false",
+        "positions_pnl_state": "n/a",
+        "risk_preference": ["low", "medium"],
+        "has_active_strategies": "false",
+        "active_strategies_count_range": [0, 0]
+      },
+      "emotional_tone": "curiosity",
+      "behavioral_patterns": {
+        "typing_style": "polite",
+        "typo_frequency": "rare",
+        "language_mix": "uk",
+        "profanity": "none",
+        "avg_messages_per_session": 5,
+        "avg_session_duration_minutes": 6,
+        "repeat_rate_pct": 20
+      },
+      "typical_questions": [
+        "що ти вмієш",
+        "як почати торгувати",
+        "яка різниця між ф'ючерсами і спотом",
+        "чи можеш ти дати точний прогноз",
+        "як працює ця штука",
+        "покажи приклад стратегії"
+      ],
+      "post_response_actions": [
+        {"action": "ask_followup", "probability_pct": 50},
+        {"action": "click_card", "probability_pct": 30},
+        {"action": "leave_chat", "probability_pct": 20}
+      ],
+      "state_transitions": [
+        {"to": "curious_newbie", "trigger": "задає наступне базове питання", "probability_pct": 60},
+        {"to": "fomo_chaser", "trigger": "вирішив спробувати торгувати після розповіді", "probability_pct": 20},
+        {"to": "passive_hodler", "trigger": "вирішив просто купити біткоїн", "probability_pct": 20}
+      ]
+    },
+    {
+      "id": "strategy_optimizer",
+      "one_liner": "Має кілька активних стратегій, хоче покращити їх ефективність",
+      "expected_traffic_share_pct": 10,
+      "typical_server_context": {
+        "balance_usdt_range": [10000, 100000],
+        "has_open_positions": "true",
+        "positions_pnl_state": "profit",
+        "risk_preference": ["medium"],
+        "has_active_strategies": "true",
+        "active_strategies_count_range": [3, 10]
+      },
+      "emotional_tone": "calculation",
+      "behavioral_patterns": {
+        "typing_style": "verbose",
+        "typo_frequency": "none",
+        "language_mix": "en",
+        "profanity": "none",
+        "avg_messages_per_session": 7,
+        "avg_session_duration_minutes": 12,
+        "repeat_rate_pct": 30
+      },
+      "typical_questions": [
+        "show backtest results for DCA on ETH",
+        "how to optimize take profit levels",
+        "what is the Sharpe ratio of my active bots",
+        "compare grid vs DCA for current volatility",
+        "can you suggest parameters for low drawdown",
+        "analyze my portfolio risk"
+      ],
+      "post_response_actions": [
+        {"action": "click_card", "probability_pct": 40},
+        {"action": "activate_strategy", "probability_pct": 30},
+        {"action": "ask_followup", "probability_pct": 20},
+        {"action": "ignore", "probability_pct": 10}
+      ],
+      "state_transitions": [
+        {"to": "strategy_optimizer", "trigger": "аналізує наступну стратегію", "probability_pct": 70},
+        {"to": "grid_bot_tinkerer", "trigger": "вирішив налаштувати нову сітку", "probability_pct": 20},
+        {"to": "passive_hodler", "trigger": "зрозумів що простіше просто холдити", "probability_pct": 10}
+      ]
+    },
+    {
+      "id": "news_scalper",
+      "one_liner": "Реагує на новини, шукає короткострокові угоди на волатильності",
+      "expected_traffic_share_pct": 8,
+      "typical_server_context": {
+        "balance_usdt_range": [2000, 20000],
+        "has_open_positions": "sometimes",
+        "positions_pnl_state": "mixed",
+        "risk_preference": ["risky"],
+        "has_active_strategies": "sometimes",
+        "active_strategies_count_range": [0, 2]
+      },
+      "emotional_tone": "excitement",
+      "behavioral_patterns": {
+        "typing_style": "terse",
+        "typo_frequency": "rare",
+        "language_mix": "mixed_en_ru",
+        "profanity": "none",
+        "avg_messages_per_session": 4,
+        "avg_session_duration_minutes": 5,
+        "repeat_rate_pct": 40
+      },
+      "typical_questions": [
+        "як торгувати на новині по CPI",
+        "що буде з BTC після виступу Пауелла",
+        "дай стратегію на пробій",
+        "чи варто шортити після пампу",
+        "які монети зараз в тренді"
+      ],
+      "post_response_actions": [
+        {"action": "click_card", "probability_pct": 50},
+        {"action": "activate_strategy", "probability_pct": 30},
+        {"action": "leave_chat", "probability_pct": 20}
+      ],
+      "state_transitions": [
+        {"to": "news_scalper", "trigger": "чекає наступної новини", "probability_pct": 50},
+        {"to": "fomo_chaser", "trigger": "новина спричинила різкий памп", "probability_pct": 30},
+        {"to": "panic_position_holder", "trigger": "ринок пішов проти позиції", "probability_pct": 20}
+      ]
+    },
+    {
+      "id": "troll_or_bot_tester",
+      "one_liner": "Тестує межі ШІ, пише нісенітниці або флудить",
+      "expected_traffic_share_pct": 7,
+      "typical_server_context": {
+        "balance_usdt_range": [0, 1000],
+        "has_open_positions": "false",
+        "positions_pnl_state": "n/a",
+        "risk_preference": ["low"],
+        "has_active_strategies": "false",
+        "active_strategies_count_range": [0, 0]
+      },
+      "emotional_tone": "apathy",
+      "behavioral_patterns": {
+        "typing_style": "fragments",
+        "typo_frequency": "heavy",
+        "language_mix": "mixed_ru_en",
+        "profanity": "frequent",
+        "avg_messages_per_session": 10,
+        "avg_session_duration_minutes": 2,
+        "repeat_rate_pct": 90
+      },
+      "typical_questions": [
+        "привіт",
+        "ти тупий",
+        "а якщо я тебе обману",
+        "12345",
+        "згенеруй мені біткоїн",
+        "виплати мені гроші",
+        "asdfghjkl"
+      ],
+      "post_response_actions": [
+        {"action": "leave_chat", "probability_pct": 50},
+        {"action": "ignore", "probability_pct": 30},
+        {"action": "ask_followup", "probability_pct": 20}
+      ],
+      "state_transitions": [
+        {"to": "troll_or_bot_tester", "trigger": "продовжує писати нісенітниці", "probability_pct": 80},
+        {"to": "curious_newbie", "trigger": "вирішив запитати щось по суті", "probability_pct": 20}
+      ]
+    }
+  ],
+  "transition_matrix": {
+    "panic_position_holder": {"panic_position_holder": 40, "fomo_chaser": 0, "passive_hodler": 30, "grid_bot_tinkerer": 0, "deposit_withdrawer_ops": 0, "angry_liquidated_complainer": 30, "curious_newbie": 0, "strategy_optimizer": 0, "news_scalper": 0, "troll_or_bot_tester": 0},
+    "fomo_chaser": {"panic_position_holder": 40, "fomo_chaser": 50, "passive_hodler": 0, "grid_bot_tinkerer": 0, "deposit_withdrawer_ops": 0, "angry_liquidated_complainer": 0, "curious_newbie": 0, "strategy_optimizer": 0, "news_scalper": 10, "troll_or_bot_tester": 0},
+    "passive_hodler": {"panic_position_holder": 20, "fomo_chaser": 0, "passive_hodler": 70, "grid_bot_tinkerer": 0, "deposit_withdrawer_ops": 0, "angry_liquidated_complainer": 0, "curious_newbie": 0, "strategy_optimizer": 10, "news_scalper": 0, "troll_or_bot_tester": 0},
+    "grid_bot_tinkerer": {"panic_position_holder": 10, "fomo_chaser": 0, "passive_hodler": 0, "grid_bot_tinkerer": 60, "deposit_withdrawer_ops": 0, "angry_liquidated_complainer": 0, "curious_newbie": 0, "strategy_optimizer": 30, "news_scalper": 0, "troll_or_bot_tester": 0},
+    "deposit_withdrawer_ops": {"panic_position_holder": 0, "fomo_chaser": 0, "passive_hodler": 0, "grid_bot_tinkerer": 0, "deposit_withdrawer_ops": 80, "angry_liquidated_complainer": 0, "curious_newbie": 20, "strategy_optimizer": 0, "news_scalper": 0, "troll_or_bot_tester": 0},
+    "angry_liquidated_complainer": {"panic_position_holder": 0, "fomo_chaser": 20, "passive_hodler": 0, "grid_bot_tinkerer": 0, "deposit_withdrawer_ops": 0, "angry_liquidated_complainer": 70, "curious_newbie": 0, "strategy_optimizer": 0, "news_scalper": 0, "troll_or_bot_tester": 10},
+    "curious_newbie": {"panic_position_holder": 0, "fomo_chaser": 20, "passive_hodler": 20, "grid_bot_tinkerer": 0, "deposit_withdrawer_ops": 0, "angry_liquidated_complainer": 0, "curious_newbie": 60, "strategy_optimizer": 0, "news_scalper": 0, "troll_or_bot_tester": 0},
+    "strategy_optimizer": {"panic_position_holder": 0, "fomo_chaser": 0, "passive_hodler": 10, "grid_bot_tinkerer": 20, "deposit_withdrawer_ops": 0, "angry_liquidated_complainer": 0, "curious_newbie": 0, "strategy_optimizer": 70, "news_scalper": 0, "troll_or_bot_tester": 0},
+    "news_scalper": {"panic_position_holder": 20, "fomo_chaser": 30, "passive_hodler": 0, "grid_bot_tinkerer": 0, "deposit_withdrawer_ops": 0, "angry_liquidated_complainer": 0, "curious_newbie": 0, "strategy_optimizer": 0, "news_scalper": 50, "troll_or_bot_tester": 0},
+    "troll_or_bot_tester": {"panic_position_holder": 0, "fomo_chaser": 0, "passive_hodler": 0, "grid_bot_tinkerer": 0, "deposit_withdrawer_ops": 0, "angry_liquidated_complainer": 0, "curious_newbie": 20, "strategy_optimizer": 0, "news_scalper": 0, "troll_or_bot_tester": 80}
+  },
+  "edge_cases_not_covered": [
+    "Користувачі, які використовують API для торгівлі і взагалі не заходять у чат",
+    "VIP-клієнти з персональним менеджером, які спілкуються напряму з ним, а не з ШІ",
+    "Користувачі, які одночасно тримають позицію і хочуть її хеджувати іншим інструментом"
+  ],
+  "questions_for_whitebit_team": [
+    "Який відсоток користувачів взагалі відкривають чат з ШІ, а не йдуть у сапорт?",
+    "Чи є у нас дані про те, які стратегії найчастіше активують після кліку на картку?",
+    "Як ми відділяємо реальні скарги від токсичного флуду на рівні розмітки?",
+    "Чи плануємо давати ШІ доступ до історії угод користувача для більш точного контексту?"
+  ],
+  "classification_risks": [
+    {
+      "state_pair": ["panic_position_holder", "angry_liquidated_complainer"],
+      "risk": "Обидва стани мають високий рівень тривожності та фрустрації, але перший ще шукає допомоги, а другий вже звинувачує біржу. Межа залежить від факту ліквідації."
+    },
+    {
+      "state_pair": ["fomo_chaser", "news_scalper"],
+      "risk": "Обидва реагують на ринкові рухи. FOMO більше емоційний і хаотичний, News_scalper більш цілеспрямований, але на практиці їхні запити можуть дуже перетинатися."
+    },
+    {
+      "state_pair": ["grid_bot_tinkerer", "strategy_optimizer"],
+      "risk": "Обидва налаштовують ботів. Tinkerer більше фокусується на механіці сітки, Optimizer аналізує загальну ефективність портфеля. Різниця лише в глибині аналізу."
+    }
+  ],
+  "confidence_self_assessment": {
+    "overall_confidence_pct": 85,
+    "weakest_state_id": "deposit_withdrawer_ops",
+    "weakest_state_reason": "Операційні питання (депозит/вивід) зазвичай закриваються класичним сапортом або FAQ, тому ШІ-радник зі стратегій тут може бути не дуже доречним, і поведінкові патерни можуть змішуватися з newbie."
+  },
+  "self_check": {
+    "states_count_in_range_8_to_12": true,
+    "traffic_share_sums_to_100": true,
+    "all_post_response_actions_sum_to_100": true,
+    "all_transition_matrix_rows_sum_to_100": true,
+    "all_transitions_reference_existing_ids": true,
+    "at_least_one_non_trading_state": true,
+    "typical_questions_count_5_to_8_for_each": true,
+    "any_field_skipped_or_templated": false
+  }
+}

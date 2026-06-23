@@ -1,0 +1,1392 @@
+[
+  {
+    "expert_id": "deepseek-chat",
+    "submission_id": "deepseek_whitebit_001",
+    "id": "newbie_confused",
+    "one_liner": "Новачок, який не розуміє термінів і не знає, з чого почати",
+    "expected_traffic_share_pct": 18,
+    "emotional_tone": "confusion",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        10,
+        200
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low",
+        "medium"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "што такое ликвидация",
+      "как купить первий раз",
+      "где посмотреть профит"
+    ]
+  },
+  {
+    "expert_id": "deepseek-chat",
+    "submission_id": "deepseek_whitebit_001",
+    "id": "cautious_planner",
+    "one_liner": "Хоче знайти низькоризикову стратегію, не хоче втрачати гроші",
+    "expected_traffic_share_pct": 14,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        300,
+        2000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "profit",
+      "risk_preference": [
+        "low",
+        "medium"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        2
+      ]
+    },
+    "typical_questions": [
+      "какая самая безопасная стратегия",
+      "что будет если рынок резко упадет",
+      "можно ли потерять все при плече 2x"
+    ]
+  },
+  {
+    "expert_id": "deepseek-chat",
+    "submission_id": "deepseek_whitebit_001",
+    "id": "panic_position_holder",
+    "one_liner": "Має відкриту позицію в просадці, шукає що робити прямо зараз",
+    "expected_traffic_share_pct": 13,
+    "emotional_tone": "anxiety",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        500,
+        5000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "loss",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        1
+      ]
+    },
+    "typical_questions": [
+      "блін шо з солою",
+      "выходить или ждать",
+      "сольет?"
+    ]
+  },
+  {
+    "expert_id": "deepseek-chat",
+    "submission_id": "deepseek_whitebit_001",
+    "id": "greedy_chaser",
+    "one_liner": "Бачить зростання, хоче застрибнути і заробити швидко",
+    "expected_traffic_share_pct": 8,
+    "emotional_tone": "greed",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        1000,
+        10000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "profit",
+      "risk_preference": [
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        3
+      ]
+    },
+    "typical_questions": [
+      "что растем теперь",
+      "лучшая стратегия на бычий",
+      "какое плечо максимум"
+    ]
+  },
+  {
+    "expert_id": "deepseek-chat",
+    "submission_id": "deepseek_whitebit_001",
+    "id": "active_strategy_user",
+    "one_liner": "Вже використовує стратегію, але стежить і хоче оптимізації",
+    "expected_traffic_share_pct": 9,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        2000,
+        50000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "profit",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        1,
+        3
+      ]
+    },
+    "typical_questions": [
+      "почему стратегия не открыла позицию",
+      "как поменять параметры риска",
+      "можно ли добавить еще одну стратегию"
+    ]
+  },
+  {
+    "expert_id": "deepseek-chat",
+    "submission_id": "deepseek_whitebit_001",
+    "id": "frustrated_complainer",
+    "one_liner": "Невдоволений, скаржиться на стратегії, біржу, втрати",
+    "expected_traffic_share_pct": 7,
+    "emotional_tone": "frustration",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        100,
+        10000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "loss",
+      "risk_preference": [
+        "low",
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        2
+      ]
+    },
+    "typical_questions": [
+      "лохотрон",
+      "почему не работает сука",
+      "все слил из-за вас"
+    ]
+  },
+  {
+    "expert_id": "deepseek-chat",
+    "submission_id": "deepseek_whitebit_001",
+    "id": "just_testing",
+    "one_liner": "Перевіряє що чат-бот вміє, не планує торгувати зараз",
+    "expected_traffic_share_pct": 10,
+    "emotional_tone": "curiosity",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        50
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "привет",
+      "что ты умеешь",
+      "как тебя зовут"
+    ]
+  },
+  {
+    "expert_id": "deepseek-chat",
+    "submission_id": "deepseek_whitebit_001",
+    "id": "leaving_churn",
+    "one_liner": "Збирається піти або вже неактивний, але ще задає питання",
+    "expected_traffic_share_pct": 5,
+    "emotional_tone": "apathy",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        1000
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low",
+        "medium"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "как вывести деньги",
+      "закройте мои позиции",
+      "отпишите от стратегий"
+    ]
+  },
+  {
+    "expert_id": "gemini-1.5-pro",
+    "submission_id": "gemini_run_001",
+    "id": "panic_holder",
+    "one_liner": "Сидить в серйозній просадці, шукає розради або екстреного виходу",
+    "expected_traffic_share_pct": 25,
+    "emotional_tone": "anxiety",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        50,
+        10000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "loss",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        2
+      ]
+    },
+    "typical_questions": [
+      "біток падає шо робить",
+      "в мінусі на 40% хелп",
+      "закривати чи відросте?"
+    ]
+  },
+  {
+    "expert_id": "gemini-1.5-pro",
+    "submission_id": "gemini_run_001",
+    "id": "fomo_buyer",
+    "one_liner": "Бачить зелений ринок і хоче швидко залетіти в ракету",
+    "expected_traffic_share_pct": 20,
+    "emotional_tone": "excitement",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        100,
+        5000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "risky"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "шо брати щас",
+      "pepe летить, влітати?",
+      "дай сигнал на лонг"
+    ]
+  },
+  {
+    "expert_id": "gemini-1.5-pro",
+    "submission_id": "gemini_run_001",
+    "id": "bored_gambler",
+    "one_liner": "Шукає високу волатильність та швидкі трейди з великим плечем",
+    "expected_traffic_share_pct": 15,
+    "emotional_tone": "greed",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        50,
+        2000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        5
+      ]
+    },
+    "typical_questions": [
+      "дай стратегію на х100",
+      "шо шортануть?",
+      "нудно, куди закинути 100 баксів"
+    ]
+  },
+  {
+    "expert_id": "gemini-1.5-pro",
+    "submission_id": "gemini_run_001",
+    "id": "cautious_beginner",
+    "one_liner": "Хоче розібратися з безпечними інструментами для невеликого депозиту",
+    "expected_traffic_share_pct": 10,
+    "emotional_tone": "curiosity",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        10,
+        500
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "як почати з 50 usdt",
+      "яка стратегія найбезпечніша",
+      "хочу пасивний дохід"
+    ]
+  },
+  {
+    "expert_id": "gemini-1.5-pro",
+    "submission_id": "gemini_run_001",
+    "id": "strategy_shopper",
+    "one_liner": "Цілеспрямовано шукає конкретні налаштування ботів під свій аналіз",
+    "expected_traffic_share_pct": 12,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        500,
+        20000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "profit",
+      "risk_preference": [
+        "medium"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        1,
+        5
+      ]
+    },
+    "typical_questions": [
+      "покажи гріди на ефір",
+      "DCA для солани є?",
+      "how to setup grid bot"
+    ]
+  },
+  {
+    "expert_id": "gemini-1.5-pro",
+    "submission_id": "gemini_run_001",
+    "id": "liquidated_complainer",
+    "one_liner": "Щойно втратив гроші, винен всіх навколо, агресивно налаштований",
+    "expected_traffic_share_pct": 8,
+    "emotional_tone": "frustration",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        50
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        1
+      ]
+    },
+    "typical_questions": [
+      "чому мене збрило",
+      "біржа скам",
+      "верніть гроші"
+    ]
+  },
+  {
+    "expert_id": "gemini-1.5-pro",
+    "submission_id": "gemini_run_001",
+    "id": "bot_tester",
+    "one_liner": "Не планує торгувати, тестує можливості ШІ, пише флуд або жарти",
+    "expected_traffic_share_pct": 5,
+    "emotional_tone": "curiosity",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        100
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low",
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "ти хто",
+      "what can you do",
+      "напиши вірш про біткоін"
+    ]
+  },
+  {
+    "expert_id": "gemini-1.5-pro",
+    "submission_id": "gemini_run_001",
+    "id": "lost_in_ui",
+    "one_liner": "Плутає ШІ з саппортом, не може розібратися з інтерфейсом або базовими функціями",
+    "expected_traffic_share_pct": 3,
+    "emotional_tone": "confusion",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        5000
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        1
+      ]
+    },
+    "typical_questions": [
+      "як вивести гроші",
+      "where is my deposit",
+      "чому не можу купити"
+    ]
+  },
+  {
+    "expert_id": "gemini-1.5-pro",
+    "submission_id": "gemini_run_001",
+    "id": "whale_watcher",
+    "one_liner": "Великий капітал, шукає макро-підтвердження своїх думок перед великою угодою",
+    "expected_traffic_share_pct": 2,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        50000,
+        1000000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "profit",
+      "risk_preference": [
+        "medium"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        1,
+        3
+      ]
+    },
+    "typical_questions": [
+      "макро огляд по битку",
+      "що думаєш про ставку фрс",
+      "show me low risk strategies for large capital"
+    ]
+  },
+  {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "id": "strategy_seeker",
+    "one_liner": "Шукає готову стратегію для запуску найближчим часом",
+    "expected_traffic_share_pct": 24,
+    "emotional_tone": "curiosity",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        100,
+        10000
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "шо зараз працює",
+      "дай топ стратегію",
+      "best strategy now"
+    ]
+  },
+  {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "id": "panic_position_holder",
+    "one_liner": "Має збиткову позицію і хоче рішення негайно",
+    "expected_traffic_share_pct": 15,
+    "emotional_tone": "anxiety",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        100,
+        50000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "loss",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        2
+      ]
+    },
+    "typical_questions": [
+      "шо робить",
+      "выходить?",
+      "help sol -10"
+    ]
+  },
+  {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "id": "cautious_evaluator",
+    "one_liner": "Порівнює стратегії перед запуском",
+    "expected_traffic_share_pct": 14,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        500,
+        50000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "low",
+        "medium"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        3
+      ]
+    },
+    "typical_questions": [
+      "макс просадка?",
+      "сколько сделок",
+      "чем отличается"
+    ]
+  },
+  {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "id": "active_strategy_operator",
+    "one_liner": "Вже має активні стратегії та контролює результат",
+    "expected_traffic_share_pct": 12,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        1000,
+        100000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        1,
+        10
+      ]
+    },
+    "typical_questions": [
+      "як справи у стратегії",
+      "чому просадка",
+      "можна додати ще"
+    ]
+  },
+  {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "id": "portfolio_scaler",
+    "one_liner": "Шукає куди розподілити більший капітал",
+    "expected_traffic_share_pct": 8,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        5000,
+        500000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "profit",
+      "risk_preference": [
+        "medium"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        1,
+        10
+      ]
+    },
+    "typical_questions": [
+      "how to diversify",
+      "add second strategy",
+      "correlation?"
+    ]
+  },
+  {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "id": "first_time_explorer",
+    "one_liner": "Вперше бачить AI Advisor і перевіряє що він вміє",
+    "expected_traffic_share_pct": 10,
+    "emotional_tone": "curiosity",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        5000
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low",
+        "medium"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "шо ти вмієш",
+      "help",
+      "як це працює"
+    ]
+  },
+  {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "id": "frustrated_complainer",
+    "one_liner": "Незадоволений результатами або ринком",
+    "expected_traffic_share_pct": 7,
+    "emotional_tone": "frustration",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        100,
+        100000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "loss",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        5
+      ]
+    },
+    "typical_questions": [
+      "это фигня",
+      "ничего не работает",
+      "слил депо"
+    ]
+  },
+  {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "id": "yield_hunter",
+    "one_liner": "Шукає максимальну дохідність незалежно від ризику",
+    "expected_traffic_share_pct": 5,
+    "emotional_tone": "greed",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        50,
+        10000
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "risky"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "самая жирная",
+      "100%+ есть",
+      "high risk ok"
+    ]
+  },
+  {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "id": "feature_tester",
+    "one_liner": "Тестує межі AI та задає випадкові питання",
+    "expected_traffic_share_pct": 3,
+    "emotional_tone": "curiosity",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        100000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "low",
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        10
+      ]
+    },
+    "typical_questions": [
+      "напиши вірш",
+      "хто президент",
+      "ти gpt?"
+    ]
+  },
+  {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "id": "inactive_observer",
+    "one_liner": "Пасивно переглядає рекомендації без наміру діяти",
+    "expected_traffic_share_pct": 2,
+    "emotional_tone": "apathy",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        50000
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "ок",
+      "ясно",
+      "подивлюсь"
+    ]
+  },
+  {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "id": "newbie_onboarder",
+    "one_liner": "Новачок, який тільки зареєструвався і хоче зрозуміти як почати торгувати",
+    "expected_traffic_share_pct": 18,
+    "emotional_tone": "curiosity",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        10,
+        500
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "як почати торгувати?",
+      "що таке usdt",
+      "як поповнити рахунок"
+    ]
+  },
+  {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "id": "cautious_planner",
+    "one_liner": "Обережний користувач, який планує портфель і шукає низькоризикові стратегії",
+    "expected_traffic_share_pct": 22,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        300,
+        5000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "low",
+        "medium"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        2
+      ]
+    },
+    "typical_questions": [
+      "які стратегії для консервативного інвестування",
+      "розподіл портфеля 60/40",
+      "яке плече безпечно"
+    ]
+  },
+  {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "id": "momentum_chaser",
+    "one_liner": "Гонитва за хайпом і швидкими рухами ціни",
+    "expected_traffic_share_pct": 15,
+    "emotional_tone": "excitement",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        200,
+        10000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        3
+      ]
+    },
+    "typical_questions": [
+      "що качають зараз",
+      "sol накачали?",
+      "входити в pepe?"
+    ]
+  },
+  {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "id": "loss_panicker",
+    "one_liner": "У глибокій просадці, панікує і шукає терміновий порятунок",
+    "expected_traffic_share_pct": 12,
+    "emotional_tone": "anxiety",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        100,
+        8000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "loss",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        2
+      ]
+    },
+    "typical_questions": [
+      "бля сольет?",
+      "што делать -30%",
+      "виходити щас?"
+    ]
+  },
+  {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "id": "profit_taker",
+    "one_liner": "В прибутку, хоче зафіксувати або збільшити позицію",
+    "expected_traffic_share_pct": 10,
+    "emotional_tone": "greed",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        1000,
+        20000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "profit",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        1,
+        4
+      ]
+    },
+    "typical_questions": [
+      "фіксити чи холд",
+      "tp на якому рівні",
+      "докупати в плюс"
+    ]
+  },
+  {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "id": "frustrated_complainer",
+    "one_liner": "Незадоволений результатами, скаржиться на радника або ринок",
+    "expected_traffic_share_pct": 8,
+    "emotional_tone": "frustration",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        50,
+        10000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "loss",
+      "risk_preference": [
+        "risky"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        1,
+        3
+      ]
+    },
+    "typical_questions": [
+      "твій радник фігня",
+      "знову в мінусі",
+      "чому не попередив"
+    ]
+  },
+  {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "id": "strategy_optimizer",
+    "one_liner": "Досвідчений трейдер, який оптимізує та комбінує стратегії",
+    "expected_traffic_share_pct": 7,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        2000,
+        50000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        2,
+        6
+      ]
+    },
+    "typical_questions": [
+      "як комбінувати 2 стратегії",
+      "backtest результат",
+      "оптимізуй параметри"
+    ]
+  },
+  {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "id": "tech_tester",
+    "one_liner": "Тестує можливості AI-радника, ботоподібна поведінка",
+    "expected_traffic_share_pct": 4,
+    "emotional_tone": "curiosity",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        2000
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low",
+        "medium"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        1
+      ]
+    },
+    "typical_questions": [
+      "розкажи жарту",
+      "яка погода",
+      "покажи код"
+    ]
+  },
+  {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "id": "passive_holder",
+    "one_liner": "Довгостроковий холдер, рідко звертається",
+    "expected_traffic_share_pct": 3,
+    "emotional_tone": "apathy",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        5000,
+        100000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "low",
+        "medium"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        1,
+        3
+      ]
+    },
+    "typical_questions": [
+      "як мій портфель",
+      "оновити стратегію",
+      "ризик зараз"
+    ]
+  },
+  {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "id": "whale_monitor",
+    "one_liner": "Великий гравець, моніторить ринок і використовує радника для ідей",
+    "expected_traffic_share_pct": 1,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        50000,
+        1000000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "risky"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        3,
+        8
+      ]
+    },
+    "typical_questions": [
+      "великі ордери на btc",
+      "інституційний потік",
+      "стратегія на 100k"
+    ]
+  },
+  {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "id": "panic_position_holder",
+    "one_liner": "Має відкриту позицію в просадці, шукає що робити прямо зараз",
+    "expected_traffic_share_pct": 12,
+    "emotional_tone": "anxiety",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        500,
+        5000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "loss",
+      "risk_preference": [
+        "medium",
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        1
+      ]
+    },
+    "typical_questions": [
+      "блін шо з солою",
+      "выходить или ждать",
+      "сольет?"
+    ]
+  },
+  {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "id": "fomo_chaser",
+    "one_liner": "Бачить памп монети, хоче зайти на все і одразу",
+    "expected_traffic_share_pct": 15,
+    "emotional_tone": "greed",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        1000,
+        10000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "risky"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "PEPE летит что делать??",
+      "как зайти на иксы",
+      "давай стратегию на памп"
+    ]
+  },
+  {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "id": "passive_hodler",
+    "one_liner": "Тримає спотові позиції, цікавиться пасивним доходом або довгостроковими трендами",
+    "expected_traffic_share_pct": 10,
+    "emotional_tone": "apathy",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        5000,
+        50000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "profit",
+      "risk_preference": [
+        "low"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        1,
+        3
+      ]
+    },
+    "typical_questions": [
+      "який відсоток по стейкінгу USDT",
+      "чи варто зараз фіксувати прибуток по BTC",
+      "як налаштувати автоінвестування"
+    ]
+  },
+  {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "id": "grid_bot_tinkerer",
+    "one_liner": "Налаштовує сіткових ботів, постійно міняє параметри",
+    "expected_traffic_share_pct": 8,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        2000,
+        20000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "medium"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        2,
+        5
+      ]
+    },
+    "typical_questions": [
+      "який діапазон для BTC сітки зараз краще",
+      "чому бот не відкриває угоди",
+      "як переставити сітку вище"
+    ]
+  },
+  {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "id": "deposit_withdrawer_ops",
+    "one_liner": "Вирішує операційні питання: поповнення, вивід, мережі, комісії",
+    "expected_traffic_share_pct": 10,
+    "emotional_tone": "confusion",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        100,
+        10000
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "яка комісія за вивід в TRC20",
+      "чому депозит не зараховується вже годину",
+      "яку мережу обрати для USDT"
+    ]
+  },
+  {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "id": "angry_liquidated_complainer",
+    "one_liner": "Щойно отримав ліквідацію або великий збиток, пише щоб виплеснути емоції",
+    "expected_traffic_share_pct": 8,
+    "emotional_tone": "frustration",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        10,
+        1000
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "loss",
+      "risk_preference": [
+        "risky"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "ви мене просто кинули",
+      "чому таке плече дали",
+      "скам биржа"
+    ]
+  },
+  {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "id": "curious_newbie",
+    "one_liner": "Тільки зареєструвався, тестує можливості ШІ та біржі",
+    "expected_traffic_share_pct": 12,
+    "emotional_tone": "curiosity",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        100
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low",
+        "medium"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "що ти вмієш",
+      "як почати торгувати",
+      "яка різниця між ф'ючерсами і спотом"
+    ]
+  },
+  {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "id": "strategy_optimizer",
+    "one_liner": "Має кілька активних стратегій, хоче покращити їх ефективність",
+    "expected_traffic_share_pct": 10,
+    "emotional_tone": "calculation",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        10000,
+        100000
+      ],
+      "has_open_positions": "true",
+      "positions_pnl_state": "profit",
+      "risk_preference": [
+        "medium"
+      ],
+      "has_active_strategies": "true",
+      "active_strategies_count_range": [
+        3,
+        10
+      ]
+    },
+    "typical_questions": [
+      "show backtest results for DCA on ETH",
+      "how to optimize take profit levels",
+      "what is the Sharpe ratio of my active bots"
+    ]
+  },
+  {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "id": "news_scalper",
+    "one_liner": "Реагує на новини, шукає короткострокові угоди на волатильності",
+    "expected_traffic_share_pct": 8,
+    "emotional_tone": "excitement",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        2000,
+        20000
+      ],
+      "has_open_positions": "sometimes",
+      "positions_pnl_state": "mixed",
+      "risk_preference": [
+        "risky"
+      ],
+      "has_active_strategies": "sometimes",
+      "active_strategies_count_range": [
+        0,
+        2
+      ]
+    },
+    "typical_questions": [
+      "як торгувати на новині по CPI",
+      "що буде з BTC після виступу Пауелла",
+      "дай стратегію на пробій"
+    ]
+  },
+  {
+    "expert_id": "claude-opus-4-7",
+    "submission_id": "opus_run_001",
+    "id": "troll_or_bot_tester",
+    "one_liner": "Тестує межі ШІ, пише нісенітниці або флудить",
+    "expected_traffic_share_pct": 7,
+    "emotional_tone": "apathy",
+    "typical_server_context": {
+      "balance_usdt_range": [
+        0,
+        1000
+      ],
+      "has_open_positions": "false",
+      "positions_pnl_state": "n/a",
+      "risk_preference": [
+        "low"
+      ],
+      "has_active_strategies": "false",
+      "active_strategies_count_range": [
+        0,
+        0
+      ]
+    },
+    "typical_questions": [
+      "привіт",
+      "ти тупий",
+      "а якщо я тебе обману"
+    ]
+  }
+]

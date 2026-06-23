@@ -1,0 +1,910 @@
+{
+  "meta": {
+    "expert_id": "grok-xai-expert",
+    "submission_id": "grok_user_states_20250605",
+    "merged_from_parts": 1
+  },
+  "states": [
+    {
+      "id": "newbie_onboarder",
+      "one_liner": "Новачок, який тільки зареєструвався і хоче зрозуміти як почати торгувати",
+      "expected_traffic_share_pct": 18,
+      "typical_server_context": {
+        "balance_usdt_range": [
+          10,
+          500
+        ],
+        "has_open_positions": "false",
+        "positions_pnl_state": "n/a",
+        "risk_preference": [
+          "low"
+        ],
+        "has_active_strategies": "false",
+        "active_strategies_count_range": [
+          0,
+          0
+        ]
+      },
+      "emotional_tone": "curiosity",
+      "behavioral_patterns": {
+        "typing_style": "verbose",
+        "typo_frequency": "frequent",
+        "language_mix": "mixed_ru_en",
+        "profanity": "none",
+        "avg_messages_per_session": 8,
+        "avg_session_duration_minutes": 12,
+        "repeat_rate_pct": 35
+      },
+      "typical_questions": [
+        "як почати торгувати?",
+        "що таке usdt",
+        "як поповнити рахунок",
+        "яку монету купити новачку",
+        "розкажи про ф'ючерси",
+        "як вивести гроші",
+        "що таке плече",
+        "де знайти інструкцію"
+      ],
+      "post_response_actions": [
+        {
+          "action": "click_card",
+          "probability_pct": 45
+        },
+        {
+          "action": "activate_strategy",
+          "probability_pct": 25
+        },
+        {
+          "action": "ask_followup",
+          "probability_pct": 25
+        },
+        {
+          "action": "ignore",
+          "probability_pct": 5
+        }
+      ],
+      "state_transitions": [
+        {
+          "to": "cautious_planner",
+          "trigger": "отримав базову інфо і хоче план",
+          "probability_pct": 50
+        },
+        {
+          "to": "newbie_onboarder",
+          "trigger": "ще не зрозумів",
+          "probability_pct": 30
+        },
+        {
+          "to": "tech_tester",
+          "trigger": "хоче протестувати радника",
+          "probability_pct": 20
+        }
+      ]
+    },
+    {
+      "id": "cautious_planner",
+      "one_liner": "Обережний користувач, який планує портфель і шукає низькоризикові стратегії",
+      "expected_traffic_share_pct": 22,
+      "typical_server_context": {
+        "balance_usdt_range": [
+          300,
+          5000
+        ],
+        "has_open_positions": "sometimes",
+        "positions_pnl_state": "mixed",
+        "risk_preference": [
+          "low",
+          "medium"
+        ],
+        "has_active_strategies": "sometimes",
+        "active_strategies_count_range": [
+          0,
+          2
+        ]
+      },
+      "emotional_tone": "calculation",
+      "behavioral_patterns": {
+        "typing_style": "polite",
+        "typo_frequency": "rare",
+        "language_mix": "en",
+        "profanity": "none",
+        "avg_messages_per_session": 5,
+        "avg_session_duration_minutes": 9,
+        "repeat_rate_pct": 25
+      },
+      "typical_questions": [
+        "які стратегії для консервативного інвестування",
+        "розподіл портфеля 60/40",
+        "яке плече безпечно",
+        "стратегія на BTC довгостроково",
+        "як хеджувати ризики",
+        "рекомендації по диверсифікації"
+      ],
+      "post_response_actions": [
+        {
+          "action": "click_card",
+          "probability_pct": 55
+        },
+        {
+          "action": "activate_strategy",
+          "probability_pct": 30
+        },
+        {
+          "action": "ask_followup",
+          "probability_pct": 10
+        },
+        {
+          "action": "ignore",
+          "probability_pct": 5
+        }
+      ],
+      "state_transitions": [
+        {
+          "to": "cautious_planner",
+          "trigger": "аналізує пропозиції",
+          "probability_pct": 45
+        },
+        {
+          "to": "passive_holder",
+          "trigger": "активував і чекає",
+          "probability_pct": 35
+        },
+        {
+          "to": "loss_panicker",
+          "trigger": "ринок впав",
+          "probability_pct": 20
+        }
+      ]
+    },
+    {
+      "id": "momentum_chaser",
+      "one_liner": "Гонитва за хайпом і швидкими рухами ціни",
+      "expected_traffic_share_pct": 15,
+      "typical_server_context": {
+        "balance_usdt_range": [
+          200,
+          10000
+        ],
+        "has_open_positions": "true",
+        "positions_pnl_state": "mixed",
+        "risk_preference": [
+          "medium",
+          "risky"
+        ],
+        "has_active_strategies": "sometimes",
+        "active_strategies_count_range": [
+          0,
+          3
+        ]
+      },
+      "emotional_tone": "excitement",
+      "behavioral_patterns": {
+        "typing_style": "terse",
+        "typo_frequency": "frequent",
+        "language_mix": "mixed_ru_en",
+        "profanity": "rare",
+        "avg_messages_per_session": 7,
+        "avg_session_duration_minutes": 6,
+        "repeat_rate_pct": 40
+      },
+      "typical_questions": [
+        "що качають зараз",
+        "sol накачали?",
+        "входити в pepe?",
+        "тренд на eth",
+        "коли пік",
+        "швидка стратегія",
+        "fomo help"
+      ],
+      "post_response_actions": [
+        {
+          "action": "click_card",
+          "probability_pct": 60
+        },
+        {
+          "action": "activate_strategy",
+          "probability_pct": 20
+        },
+        {
+          "action": "ask_followup",
+          "probability_pct": 15
+        },
+        {
+          "action": "ignore",
+          "probability_pct": 5
+        }
+      ],
+      "state_transitions": [
+        {
+          "to": "profit_taker",
+          "trigger": "позиція в плюсі",
+          "probability_pct": 40
+        },
+        {
+          "to": "loss_panicker",
+          "trigger": "дамп",
+          "probability_pct": 35
+        },
+        {
+          "to": "momentum_chaser",
+          "trigger": "новий хайп",
+          "probability_pct": 25
+        }
+      ]
+    },
+    {
+      "id": "loss_panicker",
+      "one_liner": "У глибокій просадці, панікує і шукає терміновий порятунок",
+      "expected_traffic_share_pct": 12,
+      "typical_server_context": {
+        "balance_usdt_range": [
+          100,
+          8000
+        ],
+        "has_open_positions": "true",
+        "positions_pnl_state": "loss",
+        "risk_preference": [
+          "medium",
+          "risky"
+        ],
+        "has_active_strategies": "sometimes",
+        "active_strategies_count_range": [
+          0,
+          2
+        ]
+      },
+      "emotional_tone": "anxiety",
+      "behavioral_patterns": {
+        "typing_style": "fragments",
+        "typo_frequency": "heavy",
+        "language_mix": "mixed_ru_en",
+        "profanity": "frequent",
+        "avg_messages_per_session": 9,
+        "avg_session_duration_minutes": 5,
+        "repeat_rate_pct": 65
+      },
+      "typical_questions": [
+        "бля сольет?",
+        "што делать -30%",
+        "виходити щас?",
+        "докупати чи стоп",
+        "поможи срочно",
+        "все в мінусі",
+        "коли відскок"
+      ],
+      "post_response_actions": [
+        {
+          "action": "ask_followup",
+          "probability_pct": 50
+        },
+        {
+          "action": "click_card",
+          "probability_pct": 20
+        },
+        {
+          "action": "leave_chat",
+          "probability_pct": 15
+        },
+        {
+          "action": "complain",
+          "probability_pct": 15
+        }
+      ],
+      "state_transitions": [
+        {
+          "to": "loss_panicker",
+          "trigger": "не заспокоїли",
+          "probability_pct": 45
+        },
+        {
+          "to": "frustrated_complainer",
+          "trigger": "ще гірше",
+          "probability_pct": 30
+        },
+        {
+          "to": "cautious_planner",
+          "trigger": "взяв паузу",
+          "probability_pct": 25
+        }
+      ]
+    },
+    {
+      "id": "profit_taker",
+      "one_liner": "В прибутку, хоче зафіксувати або збільшити позицію",
+      "expected_traffic_share_pct": 10,
+      "typical_server_context": {
+        "balance_usdt_range": [
+          1000,
+          20000
+        ],
+        "has_open_positions": "true",
+        "positions_pnl_state": "profit",
+        "risk_preference": [
+          "medium",
+          "risky"
+        ],
+        "has_active_strategies": "true",
+        "active_strategies_count_range": [
+          1,
+          4
+        ]
+      },
+      "emotional_tone": "greed",
+      "behavioral_patterns": {
+        "typing_style": "terse",
+        "typo_frequency": "rare",
+        "language_mix": "en",
+        "profanity": "none",
+        "avg_messages_per_session": 4,
+        "avg_session_duration_minutes": 4,
+        "repeat_rate_pct": 30
+      },
+      "typical_questions": [
+        "фіксити чи холд",
+        "tp на якому рівні",
+        "докупати в плюс",
+        "стратегія trailing stop",
+        "коли продавати"
+      ],
+      "post_response_actions": [
+        {
+          "action": "click_card",
+          "probability_pct": 50
+        },
+        {
+          "action": "activate_strategy",
+          "probability_pct": 35
+        },
+        {
+          "action": "ignore",
+          "probability_pct": 15
+        }
+      ],
+      "state_transitions": [
+        {
+          "to": "profit_taker",
+          "trigger": "прибуток росте",
+          "probability_pct": 50
+        },
+        {
+          "to": "momentum_chaser",
+          "trigger": "нові ідеї",
+          "probability_pct": 30
+        },
+        {
+          "to": "passive_holder",
+          "trigger": "зафіксував",
+          "probability_pct": 20
+        }
+      ]
+    },
+    {
+      "id": "frustrated_complainer",
+      "one_liner": "Незадоволений результатами, скаржиться на радника або ринок",
+      "expected_traffic_share_pct": 8,
+      "typical_server_context": {
+        "balance_usdt_range": [
+          50,
+          10000
+        ],
+        "has_open_positions": "sometimes",
+        "positions_pnl_state": "loss",
+        "risk_preference": [
+          "risky"
+        ],
+        "has_active_strategies": "true",
+        "active_strategies_count_range": [
+          1,
+          3
+        ]
+      },
+      "emotional_tone": "frustration",
+      "behavioral_patterns": {
+        "typing_style": "shouting",
+        "typo_frequency": "frequent",
+        "language_mix": "mixed_ru_en",
+        "profanity": "frequent",
+        "avg_messages_per_session": 6,
+        "avg_session_duration_minutes": 7,
+        "repeat_rate_pct": 55
+      },
+      "typical_questions": [
+        "твій радник фігня",
+        "знову в мінусі",
+        "чому не попередив",
+        "верни гроші",
+        "бот не працює",
+        "скарга"
+      ],
+      "post_response_actions": [
+        {
+          "action": "complain",
+          "probability_pct": 40
+        },
+        {
+          "action": "leave_chat",
+          "probability_pct": 30
+        },
+        {
+          "action": "ask_followup",
+          "probability_pct": 20
+        },
+        {
+          "action": "ignore",
+          "probability_pct": 10
+        }
+      ],
+      "state_transitions": [
+        {
+          "to": "frustrated_complainer",
+          "trigger": "не заспокоїли",
+          "probability_pct": 60
+        },
+        {
+          "to": "tech_tester",
+          "trigger": "хоче перевірити",
+          "probability_pct": 20
+        },
+        {
+          "to": "loss_panicker",
+          "trigger": "продовжує втрачати",
+          "probability_pct": 20
+        }
+      ]
+    },
+    {
+      "id": "strategy_optimizer",
+      "one_liner": "Досвідчений трейдер, який оптимізує та комбінує стратегії",
+      "expected_traffic_share_pct": 7,
+      "typical_server_context": {
+        "balance_usdt_range": [
+          2000,
+          50000
+        ],
+        "has_open_positions": "true",
+        "positions_pnl_state": "mixed",
+        "risk_preference": [
+          "medium",
+          "risky"
+        ],
+        "has_active_strategies": "true",
+        "active_strategies_count_range": [
+          2,
+          6
+        ]
+      },
+      "emotional_tone": "calculation",
+      "behavioral_patterns": {
+        "typing_style": "polite",
+        "typo_frequency": "none",
+        "language_mix": "en",
+        "profanity": "none",
+        "avg_messages_per_session": 5,
+        "avg_session_duration_minutes": 10,
+        "repeat_rate_pct": 20
+      },
+      "typical_questions": [
+        "як комбінувати 2 стратегії",
+        "backtest результат",
+        "оптимізуй параметри",
+        "кореляція стратегій",
+        "замінити цю на ту"
+      ],
+      "post_response_actions": [
+        {
+          "action": "click_card",
+          "probability_pct": 40
+        },
+        {
+          "action": "activate_strategy",
+          "probability_pct": 40
+        },
+        {
+          "action": "ask_followup",
+          "probability_pct": 20
+        }
+      ],
+      "state_transitions": [
+        {
+          "to": "strategy_optimizer",
+          "trigger": "аналізує",
+          "probability_pct": 55
+        },
+        {
+          "to": "profit_taker",
+          "trigger": "успішна оптимізація",
+          "probability_pct": 30
+        },
+        {
+          "to": "cautious_planner",
+          "trigger": "зменшив ризик",
+          "probability_pct": 15
+        }
+      ]
+    },
+    {
+      "id": "tech_tester",
+      "one_liner": "Тестує можливості AI-радника, ботоподібна поведінка",
+      "expected_traffic_share_pct": 4,
+      "typical_server_context": {
+        "balance_usdt_range": [
+          0,
+          2000
+        ],
+        "has_open_positions": "false",
+        "positions_pnl_state": "n/a",
+        "risk_preference": [
+          "low",
+          "medium"
+        ],
+        "has_active_strategies": "false",
+        "active_strategies_count_range": [
+          0,
+          1
+        ]
+      },
+      "emotional_tone": "curiosity",
+      "behavioral_patterns": {
+        "typing_style": "fragments",
+        "typo_frequency": "rare",
+        "language_mix": "en",
+        "profanity": "none",
+        "avg_messages_per_session": 12,
+        "avg_session_duration_minutes": 8,
+        "repeat_rate_pct": 70
+      },
+      "typical_questions": [
+        "розкажи жарту",
+        "яка погода",
+        "покажи код",
+        "що вмієш",
+        "тест 123",
+        "напиши вірш",
+        "як ти думаєш"
+      ],
+      "post_response_actions": [
+        {
+          "action": "ask_followup",
+          "probability_pct": 70
+        },
+        {
+          "action": "ignore",
+          "probability_pct": 20
+        },
+        {
+          "action": "leave_chat",
+          "probability_pct": 10
+        }
+      ],
+      "state_transitions": [
+        {
+          "to": "tech_tester",
+          "trigger": "продовжує тест",
+          "probability_pct": 60
+        },
+        {
+          "to": "newbie_onboarder",
+          "trigger": "переходить до торгівлі",
+          "probability_pct": 25
+        },
+        {
+          "to": "frustrated_complainer",
+          "trigger": "не сподобалась відповідь",
+          "probability_pct": 15
+        }
+      ]
+    },
+    {
+      "id": "passive_holder",
+      "one_liner": "Довгостроковий холдер, рідко звертається",
+      "expected_traffic_share_pct": 3,
+      "typical_server_context": {
+        "balance_usdt_range": [
+          5000,
+          100000
+        ],
+        "has_open_positions": "true",
+        "positions_pnl_state": "mixed",
+        "risk_preference": [
+          "low",
+          "medium"
+        ],
+        "has_active_strategies": "true",
+        "active_strategies_count_range": [
+          1,
+          3
+        ]
+      },
+      "emotional_tone": "apathy",
+      "behavioral_patterns": {
+        "typing_style": "terse",
+        "typo_frequency": "none",
+        "language_mix": "en",
+        "profanity": "none",
+        "avg_messages_per_session": 2,
+        "avg_session_duration_minutes": 3,
+        "repeat_rate_pct": 10
+      },
+      "typical_questions": [
+        "як мій портфель",
+        "оновити стратегію",
+        "ризик зараз",
+        "коли ребаланс"
+      ],
+      "post_response_actions": [
+        {
+          "action": "click_card",
+          "probability_pct": 40
+        },
+        {
+          "action": "activate_strategy",
+          "probability_pct": 30
+        },
+        {
+          "action": "ignore",
+          "probability_pct": 30
+        }
+      ],
+      "state_transitions": [
+        {
+          "to": "passive_holder",
+          "trigger": "стабільно",
+          "probability_pct": 70
+        },
+        {
+          "to": "cautious_planner",
+          "trigger": "хоче переглянути",
+          "probability_pct": 20
+        },
+        {
+          "to": "profit_taker",
+          "trigger": "великий плюс",
+          "probability_pct": 10
+        }
+      ]
+    },
+    {
+      "id": "whale_monitor",
+      "one_liner": "Великий гравець, моніторить ринок і використовує радника для ідей",
+      "expected_traffic_share_pct": 1,
+      "typical_server_context": {
+        "balance_usdt_range": [
+          50000,
+          1000000
+        ],
+        "has_open_positions": "true",
+        "positions_pnl_state": "mixed",
+        "risk_preference": [
+          "risky"
+        ],
+        "has_active_strategies": "true",
+        "active_strategies_count_range": [
+          3,
+          8
+        ]
+      },
+      "emotional_tone": "calculation",
+      "behavioral_patterns": {
+        "typing_style": "polite",
+        "typo_frequency": "none",
+        "language_mix": "en",
+        "profanity": "none",
+        "avg_messages_per_session": 4,
+        "avg_session_duration_minutes": 15,
+        "repeat_rate_pct": 15
+      },
+      "typical_questions": [
+        "великі ордери на btc",
+        "інституційний потік",
+        "стратегія на 100k",
+        "арбітраж можливості",
+        "макро огляд"
+      ],
+      "post_response_actions": [
+        {
+          "action": "click_card",
+          "probability_pct": 45
+        },
+        {
+          "action": "ask_followup",
+          "probability_pct": 35
+        },
+        {
+          "action": "activate_strategy",
+          "probability_pct": 20
+        }
+      ],
+      "state_transitions": [
+        {
+          "to": "whale_monitor",
+          "trigger": "продовжує моніторинг",
+          "probability_pct": 65
+        },
+        {
+          "to": "strategy_optimizer",
+          "trigger": "хоче оптимізувати",
+          "probability_pct": 25
+        },
+        {
+          "to": "profit_taker",
+          "trigger": "фіксація",
+          "probability_pct": 10
+        }
+      ]
+    }
+  ],
+  "transition_matrix": {
+    "newbie_onboarder": {
+      "newbie_onboarder": 40,
+      "cautious_planner": 35,
+      "momentum_chaser": 5,
+      "loss_panicker": 5,
+      "profit_taker": 0,
+      "frustrated_complainer": 5,
+      "strategy_optimizer": 0,
+      "tech_tester": 10,
+      "passive_holder": 0,
+      "whale_monitor": 0
+    },
+    "cautious_planner": {
+      "newbie_onboarder": 5,
+      "cautious_planner": 45,
+      "momentum_chaser": 10,
+      "loss_panicker": 15,
+      "profit_taker": 10,
+      "frustrated_complainer": 5,
+      "strategy_optimizer": 5,
+      "tech_tester": 0,
+      "passive_holder": 5,
+      "whale_monitor": 0
+    },
+    "momentum_chaser": {
+      "newbie_onboarder": 5,
+      "cautious_planner": 10,
+      "momentum_chaser": 30,
+      "loss_panicker": 25,
+      "profit_taker": 20,
+      "frustrated_complainer": 5,
+      "strategy_optimizer": 0,
+      "tech_tester": 0,
+      "passive_holder": 5,
+      "whale_monitor": 0
+    },
+    "loss_panicker": {
+      "newbie_onboarder": 5,
+      "cautious_planner": 20,
+      "momentum_chaser": 10,
+      "loss_panicker": 35,
+      "profit_taker": 5,
+      "frustrated_complainer": 20,
+      "strategy_optimizer": 0,
+      "tech_tester": 5,
+      "passive_holder": 0,
+      "whale_monitor": 0
+    },
+    "profit_taker": {
+      "newbie_onboarder": 0,
+      "cautious_planner": 15,
+      "momentum_chaser": 25,
+      "loss_panicker": 5,
+      "profit_taker": 35,
+      "frustrated_complainer": 5,
+      "strategy_optimizer": 5,
+      "tech_tester": 0,
+      "passive_holder": 10,
+      "whale_monitor": 0
+    },
+    "frustrated_complainer": {
+      "newbie_onboarder": 5,
+      "cautious_planner": 10,
+      "momentum_chaser": 5,
+      "loss_panicker": 25,
+      "profit_taker": 5,
+      "frustrated_complainer": 40,
+      "strategy_optimizer": 0,
+      "tech_tester": 5,
+      "passive_holder": 0,
+      "whale_monitor": 0
+    },
+    "strategy_optimizer": {
+      "newbie_onboarder": 0,
+      "cautious_planner": 15,
+      "momentum_chaser": 10,
+      "loss_panicker": 5,
+      "profit_taker": 15,
+      "frustrated_complainer": 5,
+      "strategy_optimizer": 40,
+      "tech_tester": 0,
+      "passive_holder": 5,
+      "whale_monitor": 5
+    },
+    "tech_tester": {
+      "newbie_onboarder": 30,
+      "cautious_planner": 10,
+      "momentum_chaser": 5,
+      "loss_panicker": 5,
+      "profit_taker": 0,
+      "frustrated_complainer": 15,
+      "strategy_optimizer": 0,
+      "tech_tester": 30,
+      "passive_holder": 0,
+      "whale_monitor": 0
+    },
+    "passive_holder": {
+      "newbie_onboarder": 0,
+      "cautious_planner": 25,
+      "momentum_chaser": 5,
+      "loss_panicker": 10,
+      "profit_taker": 20,
+      "frustrated_complainer": 5,
+      "strategy_optimizer": 10,
+      "tech_tester": 0,
+      "passive_holder": 25,
+      "whale_monitor": 0
+    },
+    "whale_monitor": {
+      "newbie_onboarder": 0,
+      "cautious_planner": 10,
+      "momentum_chaser": 15,
+      "loss_panicker": 5,
+      "profit_taker": 20,
+      "frustrated_complainer": 5,
+      "strategy_optimizer": 20,
+      "tech_tester": 0,
+      "passive_holder": 10,
+      "whale_monitor": 15
+    }
+  },
+  "edge_cases_not_covered": [
+    "Користувачі з кількома акаунтами або API-боти, які не пишуть у чат",
+    "Мультимовні користувачі з рідкісними мовами (не RU/EN/UK)",
+    "Масові скарг під час блекауту біржі або хаку",
+    "Користувачі з юридичними/регуляторними питаннями",
+    "Спамери та фішингові запити"
+  ],
+  "questions_for_whitebit_team": [
+    "Які реальні частки трафіку по основних типах чат-запитів зараз?",
+    "Чи є сегментація користувачів за країнами/мовою, яка впливає на поведінку?",
+    "Як часто користувачі активують стратегії після рекомендації радника?",
+    "Які найчастіші скарги в підтримку пов'язані з торгівлею?",
+    "Є дані по churn rate після негативних торгових сесій?"
+  ],
+  "classification_risks": [
+    {
+      "state_pair": [
+        "loss_panicker",
+        "frustrated_complainer"
+      ],
+      "risk": "Обидва стани мають негативний емоційний фон і часті матюки, важко відрізнити за одним повідомленням"
+    },
+    {
+      "state_pair": [
+        "momentum_chaser",
+        "profit_taker"
+      ],
+      "risk": "Обидва можуть мати короткі повідомлення про конкретні монети в позитивному контексті"
+    },
+    {
+      "state_pair": [
+        "newbie_onboarder",
+        "tech_tester"
+      ],
+      "risk": "Обидва можуть ставити базові питання"
+    }
+  ],
+  "confidence_self_assessment": {
+    "overall_confidence_pct": 78,
+    "weakest_state_id": "whale_monitor",
+    "weakest_state_reason": "Мало даних про поведінку справжніх китів у чаті підтримки, вони рідко пишуть"
+  },
+  "self_check": {
+    "states_count_in_range_8_to_12": true,
+    "traffic_share_sums_to_100": true,
+    "all_post_response_actions_sum_to_100": true,
+    "all_transition_matrix_rows_sum_to_100": true,
+    "all_transitions_reference_existing_ids": true,
+    "at_least_one_non_trading_state": true,
+    "typical_questions_count_5_to_8_for_each": true,
+    "any_field_skipped_or_templated": false
+  }
+}

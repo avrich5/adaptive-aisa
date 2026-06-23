@@ -1,0 +1,23 @@
+# data artifacts — generated, never in repo
+data/**
+!data/.gitkeep
+*.parquet
+*.feather
+runs/
+output/
+*.pkl
+
+# secrets
+.env
+*.key
+*.pem
+wg*.conf
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# os
+.DS_Store

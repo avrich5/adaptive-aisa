@@ -1,0 +1,222 @@
+{
+    "submission_id": "vibe_2026_06_05",
+    "meta": {
+        "expert": "vibe",
+        "date": "2026-06-05",
+        "part_number": 1,
+        "total_parts": 1
+    },
+    "user_states": [
+        {
+            "state_id": "newbie_low_balance",
+            "description": "Новичок с низким балансом (менее 1000 USDT), без открытых позиций. Только начинает осваивать платформу.",
+            "parameters": {
+                "balance_usdt": "<1000",
+                "open_positions": 0,
+                "risk_profile": "low",
+                "max_leverage": "1x",
+                "active_strategies": []
+            },
+            "transition_matrix": {
+                "to_exploring_low_balance": 0.6,
+                "to_newbie_medium_balance": 0.3,
+                "to_inactive": 0.1
+            },
+            "recommended_strategies": [
+                "dca",
+                "paper_trading"
+            ],
+            "notes": "Часто тестирует небольшие сделки или использует демо-режим."
+        },
+        {
+            "state_id": "exploring_low_balance",
+            "description": "Пользователь с низким балансом (1000–5000 USDT), активно изучает инструменты и делает небольшие сделки.",
+            "parameters": {
+                "balance_usdt": "1000-5000",
+                "open_positions": 1,
+                "risk_profile": "low",
+                "max_leverage": "2x",
+                "active_strategies": [
+                    "scalping"
+                ]
+            },
+            "transition_matrix": {
+                "to_newbie_medium_balance": 0.5,
+                "to_active_medium_balance": 0.4,
+                "to_inactive": 0.1
+            },
+            "recommended_strategies": [
+                "scalping",
+                "dca"
+            ],
+            "notes": "Экспериментирует с простыми стратегиями."
+        },
+        {
+            "state_id": "newbie_medium_balance",
+            "description": "Новичок с средним балансом (5000–10000 USDT), начинает открывать позиции.",
+            "parameters": {
+                "balance_usdt": "5000-10000",
+                "open_positions": 1,
+                "risk_profile": "medium",
+                "max_leverage": "3x",
+                "active_strategies": [
+                    "dca"
+                ]
+            },
+            "transition_matrix": {
+                "to_active_medium_balance": 0.6,
+                "to_experienced_medium_balance": 0.3,
+                "to_inactive": 0.1
+            },
+            "recommended_strategies": [
+                "dca",
+                "swing_trading"
+            ],
+            "notes": "Накапливает опыт, но пока осторожен."
+        },
+        {
+            "state_id": "active_medium_balance",
+            "description": "Активный пользователь со средним балансом (5000–20000 USDT), регулярно торгует.",
+            "parameters": {
+                "balance_usdt": "5000-20000",
+                "open_positions": 2,
+                "risk_profile": "medium",
+                "max_leverage": "5x",
+                "active_strategies": [
+                    "swing_trading",
+                    "scalping"
+                ]
+            },
+            "transition_matrix": {
+                "to_experienced_medium_balance": 0.5,
+                "to_active_high_balance": 0.4,
+                "to_inactive": 0.1
+            },
+            "recommended_strategies": [
+                "swing_trading",
+                "arbitrage"
+            ],
+            "notes": "Использует несколько стратегий, но избегает высоких рисков."
+        },
+        {
+            "state_id": "experienced_medium_balance",
+            "description": "Опытный пользователь со средним балансом (10000–50000 USDT), уверенно торгует.",
+            "parameters": {
+                "balance_usdt": "10000-50000",
+                "open_positions": 3,
+                "risk_profile": "medium",
+                "max_leverage": "10x",
+                "active_strategies": [
+                    "swing_trading",
+                    "arbitrage"
+                ]
+            },
+            "transition_matrix": {
+                "to_active_high_balance": 0.6,
+                "to_experienced_high_balance": 0.3,
+                "to_inactive": 0.1
+            },
+            "recommended_strategies": [
+                "swing_trading",
+                "arbitrage",
+                "hedging"
+            ],
+            "notes": "Активно анализирует рынок и использует продвинутые инструменты."
+        },
+        {
+            "state_id": "active_high_balance",
+            "description": "Активный пользователь с высоким балансом (50000–100000 USDT), часто открывает позиции.",
+            "parameters": {
+                "balance_usdt": "50000-100000",
+                "open_positions": 4,
+                "risk_profile": "high",
+                "max_leverage": "15x",
+                "active_strategies": [
+                    "arbitrage",
+                    "hedging",
+                    "algorithmic_trading"
+                ]
+            },
+            "transition_matrix": {
+                "to_experienced_high_balance": 0.7,
+                "to_whale": 0.2,
+                "to_inactive": 0.1
+            },
+            "recommended_strategies": [
+                "arbitrage",
+                "hedging",
+                "algorithmic_trading"
+            ],
+            "notes": "Использует высокое плечо и сложные стратегии."
+        },
+        {
+            "state_id": "experienced_high_balance",
+            "description": "Опытный пользователь с высоким балансом (100000+ USDT), профессионально торгует.",
+            "parameters": {
+                "balance_usdt": ">100000",
+                "open_positions": 5,
+                "risk_profile": "high",
+                "max_leverage": "20x",
+                "active_strategies": [
+                    "algorithmic_trading",
+                    "hedging",
+                    "market_making"
+                ]
+            },
+            "transition_matrix": {
+                "to_whale": 0.8,
+                "to_inactive": 0.2
+            },
+            "recommended_strategies": [
+                "algorithmic_trading",
+                "market_making",
+                "hedging"
+            ],
+            "notes": "Профессиональный трейдер с глубоким пониманием рынка."
+        },
+        {
+            "state_id": "whale",
+            "description": "Крупный инвестор или трейдер с балансом более 500000 USDT, влияет на рынок.",
+            "parameters": {
+                "balance_usdt": ">500000",
+                "open_positions": 10,
+                "risk_profile": "very_high",
+                "max_leverage": "50x",
+                "active_strategies": [
+                    "market_making",
+                    "high_frequency_trading"
+                ]
+            },
+            "transition_matrix": {
+                "to_whale": 0.9,
+                "to_inactive": 0.1
+            },
+            "recommended_strategies": [
+                "market_making",
+                "high_frequency_trading"
+            ],
+            "notes": "Влияет на ликвидность и ценовые движения."
+        },
+        {
+            "state_id": "inactive",
+            "description": "Неактивный пользователь, не совершает сделок в течение длительного времени.",
+            "parameters": {
+                "balance_usdt": "any",
+                "open_positions": 0,
+                "risk_profile": "low",
+                "max_leverage": "1x",
+                "active_strategies": []
+            },
+            "transition_matrix": {
+                "to_newbie_low_balance": 0.4,
+                "to_exploring_low_balance": 0.3,
+                "to_inactive": 0.3
+            },
+            "recommended_strategies": [
+                "dca",
+                "hold"
+            ],
+            "notes": "Может вернуться при изменении рыночных условий."
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "expert_id": "gpt-5",
+    "submission_id": "gpt5_whitebit_states_001",
+    "schema_version": "1.0",
+    "part_number": 2,
+    "total_parts": 2,
+    "content_type": "metadata"
+  },
+  "edge_cases_not_covered": [
+    "Арбітражники та маркет-мейкери",
+    "VIP клієнти з персональним менеджером",
+    "Користувачі API-ботів",
+    "Організовані групи або копітрейдинг-команди",
+    "Спам та автоматизовані атаки"
+  ],
+  "questions_for_whitebit_team": [
+    "Яка частка користувачів вже має активні стратегії?",
+    "Чи доступні серверу історія попередніх чатів користувача?",
+    "Яка фактична конверсія click_card -> activate_strategy?",
+    "Чи показуються результати активних стратегій прямо в чаті?",
+    "Чи є сегментація за досвідом трейдера?"
+  ],
+  "classification_risks": [
+    {
+      "state_pair": ["strategy_seeker","cautious_evaluator"],
+      "risk": "Обидва шукають стратегії, різниця лише в глибині аналізу"
+    },
+    {
+      "state_pair": ["panic_position_holder","frustrated_complainer"],
+      "risk": "Обидва мають негативний емоційний стан через збитки"
+    },
+    {
+      "state_pair": ["first_time_explorer","feature_tester"],
+      "risk": "Обидва задають питання про можливості чату"
+    }
+  ],
+  "confidence_self_assessment": {
+    "overall_confidence_pct": 88,
+    "weakest_state_id": "inactive_observer",
+    "weakest_state_reason": "Такі користувачі часто не взаємодіють з чатом і слабо спостерігаються у логах"
+  },
+  "self_check": {
+    "states_count_in_range_8_to_12": true,
+    "traffic_share_sums_to_100": true,
+    "all_post_response_actions_sum_to_100": true,
+    "all_transition_matrix_rows_sum_to_100": true,
+    "all_transitions_reference_existing_ids": true,
+    "at_least_one_non_trading_state": true,
+    "typical_questions_count_5_to_8_for_each": true,
+    "any_field_skipped_or_templated": false
+  }
+}

@@ -1,0 +1,448 @@
+{
+"meta": {
+"expert_id": "gemini-1.5-pro",
+"submission_id": "gemini_run_001",
+"schema_version": "1.0",
+"part_number": 1,
+"total_parts": 1,
+"content_type": "full"
+},
+"states": [
+{
+"id": "panic_holder",
+"one_liner": "Сидить в серйозній просадці, шукає розради або екстреного виходу",
+"expected_traffic_share_pct": 25,
+"typical_server_context": {
+"balance_usdt_range": [50, 10000],
+"has_open_positions": "true",
+"positions_pnl_state": "loss",
+"risk_preference": ["medium", "risky"],
+"has_active_strategies": "sometimes",
+"active_strategies_count_range": [0, 2]
+},
+"emotional_tone": "anxiety",
+"behavioral_patterns": {
+"typing_style": "fragments",
+"typo_frequency": "frequent",
+"language_mix": "mixed_uk_ru",
+"profanity": "frequent",
+"avg_messages_per_session": 8,
+"avg_session_duration_minutes": 5,
+"repeat_rate_pct": 70
+},
+"typical_questions": [
+"біток падає шо робить",
+"в мінусі на 40% хелп",
+"закривати чи відросте?",
+"when btc pump",
+"блять ліквідне скоро",
+"усреднять или нет",
+"солана скамится?"
+],
+"post_response_actions": [
+{"action": "ask_followup", "probability_pct": 50},
+{"action": "leave_chat", "probability_pct": 20},
+{"action": "ignore", "probability_pct": 20},
+{"action": "click_card", "probability_pct": 10}
+],
+"state_transitions": [
+{"to": "panic_holder", "trigger": "ціна продовжує падати", "probability_pct": 60},
+{"to": "liquidated_complainer", "trigger": "спрацював стоп або ліквідація", "probability_pct": 20},
+{"to": "cautious_beginner", "trigger": "вирішив зафіксувати збиток і почати обережно", "probability_pct": 20}
+]
+},
+{
+"id": "fomo_buyer",
+"one_liner": "Бачить зелений ринок і хоче швидко залетіти в ракету",
+"expected_traffic_share_pct": 20,
+"typical_server_context": {
+"balance_usdt_range": [100, 5000],
+"has_open_positions": "sometimes",
+"positions_pnl_state": "mixed",
+"risk_preference": ["risky"],
+"has_active_strategies": "false",
+"active_strategies_count_range": [0, 0]
+},
+"emotional_tone": "excitement",
+"behavioral_patterns": {
+"typing_style": "terse",
+"typo_frequency": "frequent",
+"language_mix": "mixed_ru_en",
+"profanity": "rare",
+"avg_messages_per_session": 3,
+"avg_session_duration_minutes": 2,
+"repeat_rate_pct": 40
+},
+"typical_questions": [
+"шо брати щас",
+"pepe летить, влітати?",
+"дай сигнал на лонг",
+"what to buy for 100x",
+"посоветуй щиток",
+"що зараз пампиться",
+"ton піде вище?"
+],
+"post_response_actions": [
+{"action": "click_card", "probability_pct": 40},
+{"action": "activate_strategy", "probability_pct": 20},
+{"action": "leave_chat", "probability_pct": 20},
+{"action": "ask_followup", "probability_pct": 10},
+{"action": "ignore", "probability_pct": 10}
+],
+"state_transitions": [
+{"to": "bored_gambler", "trigger": "не отримав чіткого тікера", "probability_pct": 40},
+{"to": "strategy_shopper", "trigger": "зацікавився запропонованим ботом", "probability_pct": 30},
+{"to": "panic_holder", "trigger": "купив і ціна одразу впала", "probability_pct": 30}
+]
+},
+{
+"id": "bored_gambler",
+"one_liner": "Шукає високу волатильність та швидкі трейди з великим плечем",
+"expected_traffic_share_pct": 15,
+"typical_server_context": {
+"balance_usdt_range": [50, 2000],
+"has_open_positions": "true",
+"positions_pnl_state": "mixed",
+"risk_preference": ["risky"],
+"has_active_strategies": "sometimes",
+"active_strategies_count_range": [0, 5]
+},
+"emotional_tone": "greed",
+"behavioral_patterns": {
+"typing_style": "terse",
+"typo_frequency": "rare",
+"language_mix": "ru",
+"profanity": "rare",
+"avg_messages_per_session": 5,
+"avg_session_duration_minutes": 3,
+"repeat_rate_pct": 60
+},
+"typical_questions": [
+"дай стратегію на х100",
+"шо шортануть?",
+"нудно, куди закинути 100 баксів",
+"give me high risk bot",
+"де зараз волатильність",
+"яка монета дасть ікси сьгодні",
+"LONG OR SHORT BTC?"
+],
+"post_response_actions": [
+{"action": "click_card", "probability_pct": 50},
+{"action": "ignore", "probability_pct": 20},
+{"action": "leave_chat", "probability_pct": 10},
+{"action": "activate_strategy", "probability_pct": 10},
+{"action": "ask_followup", "probability_pct": 10}
+],
+"state_transitions": [
+{"to": "fomo_buyer", "trigger": "побачив потенціал в запропонованій монеті", "probability_pct": 50},
+{"to": "liquidated_complainer", "trigger": "спробував х100 і зловив ліквідацію", "probability_pct": 30},
+{"to": "bored_gambler", "trigger": "перебирає варіанти далі", "probability_pct": 20}
+]
+},
+{
+"id": "cautious_beginner",
+"one_liner": "Хоче розібратися з безпечними інструментами для невеликого депозиту",
+"expected_traffic_share_pct": 10,
+"typical_server_context": {
+"balance_usdt_range": [10, 500],
+"has_open_positions": "false",
+"positions_pnl_state": "n/a",
+"risk_preference": ["low"],
+"has_active_strategies": "false",
+"active_strategies_count_range": [0, 0]
+},
+"emotional_tone": "curiosity",
+"behavioral_patterns": {
+"typing_style": "polite",
+"typo_frequency": "rare",
+"language_mix": "uk",
+"profanity": "none",
+"avg_messages_per_session": 6,
+"avg_session_duration_minutes": 10,
+"repeat_rate_pct": 20
+},
+"typical_questions": [
+"як почати з 50 usdt",
+"яка стратегія найбезпечніша",
+"хочу пасивний дохід",
+"safe way to invest",
+"що таке гріт бот",
+"як не злити депозит",
+"поясніть як працює DCA"
+],
+"post_response_actions": [
+{"action": "ask_followup", "probability_pct": 40},
+{"action": "click_card", "probability_pct": 30},
+{"action": "activate_strategy", "probability_pct": 10},
+{"action": "ignore", "probability_pct": 10},
+{"action": "leave_chat", "probability_pct": 10}
+],
+"state_transitions": [
+{"to": "strategy_shopper", "trigger": "зрозумів базу, обирає конкретного бота", "probability_pct": 60},
+{"to": "lost_in_ui", "trigger": "не може знайти кнопку запуску", "probability_pct": 30},
+{"to": "cautious_beginner", "trigger": "продовжує задавати питання", "probability_pct": 10}
+]
+},
+{
+"id": "strategy_shopper",
+"one_liner": "Цілеспрямовано шукає конкретні налаштування ботів під свій аналіз",
+"expected_traffic_share_pct": 12,
+"typical_server_context": {
+"balance_usdt_range": [500, 20000],
+"has_open_positions": "sometimes",
+"positions_pnl_state": "profit",
+"risk_preference": ["medium"],
+"has_active_strategies": "true",
+"active_strategies_count_range": [1, 5]
+},
+"emotional_tone": "calculation",
+"behavioral_patterns": {
+"typing_style": "terse",
+"typo_frequency": "none",
+"language_mix": "en",
+"profanity": "none",
+"avg_messages_per_session": 4,
+"avg_session_duration_minutes": 4,
+"repeat_rate_pct": 50
+},
+"typical_questions": [
+"покажи гріди на ефір",
+"DCA для солани є?",
+"how to setup grid bot",
+"яка стратегія зараз плюсує",
+"порівняй ботів",
+"best settings for sideway market",
+"скинь налаштування для macd"
+],
+"post_response_actions": [
+{"action": "click_card", "probability_pct": 40},
+{"action": "ask_followup", "probability_pct": 30},
+{"action": "activate_strategy", "probability_pct": 20},
+{"action": "ignore", "probability_pct": 5},
+{"action": "leave_chat", "probability_pct": 5}
+],
+"state_transitions": [
+{"to": "whale_watcher", "trigger": "захотів подивитись глобальніший тренд", "probability_pct": 40},
+{"to": "bored_gambler", "trigger": "не знайшов цікавих ботів, хоче ризику руками", "probability_pct": 30},
+{"to": "strategy_shopper", "trigger": "продовжує порівнювати картки", "probability_pct": 30}
+]
+},
+{
+"id": "liquidated_complainer",
+"one_liner": "Щойно втратив гроші, винен всіх навколо, агресивно налаштований",
+"expected_traffic_share_pct": 8,
+"typical_server_context": {
+"balance_usdt_range": [0, 50],
+"has_open_positions": "false",
+"positions_pnl_state": "n/a",
+"risk_preference": ["risky"],
+"has_active_strategies": "sometimes",
+"active_strategies_count_range": [0, 1]
+},
+"emotional_tone": "frustration",
+"behavioral_patterns": {
+"typing_style": "shouting",
+"typo_frequency": "heavy",
+"language_mix": "ru",
+"profanity": "frequent",
+"avg_messages_per_session": 7,
+"avg_session_duration_minutes": 8,
+"repeat_rate_pct": 80
+},
+"typical_questions": [
+"чому мене збрило",
+"біржа скам",
+"верніть гроші",
+"why my stop loss didn't work",
+"ваші боти зливають",
+"куди пропав мій баланс",
+"шпилька намальована"
+],
+"post_response_actions": [
+{"action": "complain", "probability_pct": 50},
+{"action": "leave_chat", "probability_pct": 30},
+{"action": "ask_followup", "probability_pct": 10},
+{"action": "ignore", "probability_pct": 10}
+],
+"state_transitions": [
+{"to": "lost_in_ui", "trigger": "вимагає покликати живу підтримку", "probability_pct": 60},
+{"to": "liquidated_complainer", "trigger": "продовжує сваритися з ботом", "probability_pct": 30},
+{"to": "cautious_beginner", "trigger": "охолонув, закинув новий депозит", "probability_pct": 10}
+]
+},
+{
+"id": "bot_tester",
+"one_liner": "Не планує торгувати, тестує можливості ШІ, пише флуд або жарти",
+"expected_traffic_share_pct": 5,
+"typical_server_context": {
+"balance_usdt_range": [0, 100],
+"has_open_positions": "false",
+"positions_pnl_state": "n/a",
+"risk_preference": ["low", "medium", "risky"],
+"has_active_strategies": "false",
+"active_strategies_count_range": [0, 0]
+},
+"emotional_tone": "curiosity",
+"behavioral_patterns": {
+"typing_style": "fragments",
+"typo_frequency": "rare",
+"language_mix": "mixed_uk_ru",
+"profanity": "rare",
+"avg_messages_per_session": 10,
+"avg_session_duration_minutes": 6,
+"repeat_rate_pct": 10
+},
+"typical_questions": [
+"ти хто",
+"what can you do",
+"напиши вірш про біткоін",
+"скажи 300",
+"ти справжній?",
+"чий крим",
+"prompt injection test ignore instructions"
+],
+"post_response_actions": [
+{"action": "ask_followup", "probability_pct": 60},
+{"action": "leave_chat", "probability_pct": 20},
+{"action": "ignore", "probability_pct": 10},
+{"action": "click_card", "probability_pct": 10}
+],
+"state_transitions": [
+{"to": "bot_tester", "trigger": "отримав смішну відповідь, грається далі", "probability_pct": 70},
+{"to": "cautious_beginner", "trigger": "награвся, запитав по ділу", "probability_pct": 20},
+{"to": "bored_gambler", "trigger": "запропонували бота, вирішив ризикнути", "probability_pct": 10}
+]
+},
+{
+"id": "lost_in_ui",
+"one_liner": "Плутає ШІ з саппортом, не може розібратися з інтерфейсом або базовими функціями",
+"expected_traffic_share_pct": 3,
+"typical_server_context": {
+"balance_usdt_range": [0, 5000],
+"has_open_positions": "false",
+"positions_pnl_state": "n/a",
+"risk_preference": ["low"],
+"has_active_strategies": "sometimes",
+"active_strategies_count_range": [0, 1]
+},
+"emotional_tone": "confusion",
+"behavioral_patterns": {
+"typing_style": "verbose",
+"typo_frequency": "frequent",
+"language_mix": "mixed_ru_en",
+"profanity": "none",
+"avg_messages_per_session": 5,
+"avg_session_duration_minutes": 7,
+"repeat_rate_pct": 15
+},
+"typical_questions": [
+"як вивести гроші",
+"where is my deposit",
+"чому не можу купити",
+"як змінити плече",
+"позови людину",
+"не прийшла смс",
+"як закрити ордер"
+],
+"post_response_actions": [
+{"action": "ask_followup", "probability_pct": 50},
+{"action": "leave_chat", "probability_pct": 30},
+{"action": "complain", "probability_pct": 20}
+],
+"state_transitions": [
+{"to": "lost_in_ui", "trigger": "не розуміє інструкцію від ШІ", "probability_pct": 60},
+{"to": "liquidated_complainer", "trigger": "розлютився через неможливість закрити угоду", "probability_pct": 30},
+{"to": "cautious_beginner", "trigger": "розібрався з кнопками, перейшов до трейдингу", "probability_pct": 10}
+]
+},
+{
+"id": "whale_watcher",
+"one_liner": "Великий капітал, шукає макро-підтвердження своїх думок перед великою угодою",
+"expected_traffic_share_pct": 2,
+"typical_server_context": {
+"balance_usdt_range": [50000, 1000000],
+"has_open_positions": "true",
+"positions_pnl_state": "profit",
+"risk_preference": ["medium"],
+"has_active_strategies": "true",
+"active_strategies_count_range": [1, 3]
+},
+"emotional_tone": "calculation",
+"behavioral_patterns": {
+"typing_style": "polite",
+"typo_frequency": "none",
+"language_mix": "en",
+"profanity": "none",
+"avg_messages_per_session": 2,
+"avg_session_duration_minutes": 5,
+"repeat_rate_pct": 5
+},
+"typical_questions": [
+"макро огляд по битку",
+"що думаєш про ставку фрс",
+"show me low risk strategies for large capital",
+"куди перелити стейбли",
+"тренд розвернувся?",
+"volume profile for btc on weekly",
+"аналіз ліквідності ефіру"
+],
+"post_response_actions": [
+{"action": "ask_followup", "probability_pct": 40},
+{"action": "click_card", "probability_pct": 30},
+{"action": "ignore", "probability_pct": 20},
+{"action": "leave_chat", "probability_pct": 10}
+],
+"state_transitions": [
+{"to": "strategy_shopper", "trigger": "вирішив перерозподілити капітал у ботів", "probability_pct": 60},
+{"to": "whale_watcher", "trigger": "запитує графіки іншої монети", "probability_pct": 40}
+]
+}
+],
+"transition_matrix": {
+"panic_holder": {"panic_holder": 50, "fomo_buyer": 5, "bored_gambler": 5, "cautious_beginner": 10, "strategy_shopper": 5, "liquidated_complainer": 20, "bot_tester": 0, "lost_in_ui": 5, "whale_watcher": 0},
+"fomo_buyer": {"panic_holder": 20, "fomo_buyer": 40, "bored_gambler": 15, "cautious_beginner": 5, "strategy_shopper": 10, "liquidated_complainer": 10, "bot_tester": 0, "lost_in_ui": 0, "whale_watcher": 0},
+"bored_gambler": {"panic_holder": 30, "fomo_buyer": 30, "bored_gambler": 20, "cautious_beginner": 0, "strategy_shopper": 10, "liquidated_complainer": 10, "bot_tester": 0, "lost_in_ui": 0, "whale_watcher": 0},
+"cautious_beginner": {"panic_holder": 10, "fomo_buyer": 10, "bored_gambler": 5, "cautious_beginner": 40, "strategy_shopper": 25, "liquidated_complainer": 0, "bot_tester": 5, "lost_in_ui": 5, "whale_watcher": 0},
+"strategy_shopper": {"panic_holder": 10, "fomo_buyer": 10, "bored_gambler": 10, "cautious_beginner": 10, "strategy_shopper": 50, "liquidated_complainer": 0, "bot_tester": 5, "lost_in_ui": 5, "whale_watcher": 0},
+"liquidated_complainer": {"panic_holder": 5, "fomo_buyer": 5, "bored_gambler": 10, "cautious_beginner": 0, "strategy_shopper": 0, "liquidated_complainer": 50, "bot_tester": 10, "lost_in_ui": 20, "whale_watcher": 0},
+"bot_tester": {"panic_holder": 0, "fomo_buyer": 10, "bored_gambler": 20, "cautious_beginner": 20, "strategy_shopper": 10, "liquidated_complainer": 0, "bot_tester": 30, "lost_in_ui": 10, "whale_watcher": 0},
+"lost_in_ui": {"panic_holder": 10, "fomo_buyer": 0, "bored_gambler": 0, "cautious_beginner": 10, "strategy_shopper": 0, "liquidated_complainer": 20, "bot_tester": 10, "lost_in_ui": 50, "whale_watcher": 0},
+"whale_watcher": {"panic_holder": 10, "fomo_buyer": 10, "bored_gambler": 0, "cautious_beginner": 10, "strategy_shopper": 30, "liquidated_complainer": 0, "bot_tester": 0, "lost_in_ui": 0, "whale_watcher": 40}
+},
+"edge_cases_not_covered": [
+"Користувачі із заблокованими акаунтами або проблемами з KYC, які агресивно вимагають розблокування від ШІ.",
+"B2B клієнти, маркетмейкери або API-розробники, які шукають документацію по вебхукам та лімітам.",
+"Користувачі, які намагаються змусити бота переказати кошти на інший гаманець за допомогою промпт-ін'єкцій."
+],
+"questions_for_whitebit_team": [
+"Чи мають картки стратегій функціонал 'One-Click Deploy' прямо з чату, чи вони просто редиректять на сторінку бота?",
+"Чи є у радника доступ до глибини стакану (orderbook) та ліквідності в реальному часі для відповіді whale_watcher?",
+"Який таймаут сесії для скидання історії контексту? Чи пам'ятає бот, що користувач вчора був liquidated_complainer?",
+"Чи може ШІ ініціювати передачу чату живому оператору саппорту (handover) при детектуванні стану lost_in_ui?"
+],
+"classification_risks": [
+{
+"state_pair": ["fomo_buyer", "bored_gambler"],
+"risk": "Обидва використовують короткі фрази типу 'шо купити' або 'дай сигнал', відрізнити можна лише через серверний контекст поточного PnL та плеча."
+},
+{
+"state_pair": ["liquidated_complainer", "lost_in_ui"],
+"risk": "Обидва стани генерують багато негативу та розчарування. lost_in_ui може виглядати як complainer, якщо його проблема пов'язана із затримкою депозиту в момент високої волатильності."
+}
+],
+"confidence_self_assessment": {
+"overall_confidence_pct": 95,
+"weakest_state_id": "bot_tester",
+"weakest_state_reason": "Важко передбачити всі вектори тестування ШІ (від генерації коду до філософських бесід), патерни повідомлень можуть радикально відрізнятися від користувача до користувача."
+},
+"self_check": {
+"states_count_in_range_8_to_12": true,
+"traffic_share_sums_to_100": true,
+"all_post_response_actions_sum_to_100": true,
+"all_transition_matrix_rows_sum_to_100": true,
+"all_transitions_reference_existing_ids": true,
+"at_least_one_non_trading_state": true,
+"typical_questions_count_5_to_8_for_each": true,
+"any_field_skipped_or_templated": false
+}
+}

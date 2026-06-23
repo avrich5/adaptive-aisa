@@ -1,0 +1,45 @@
+{
+"meta": {
+"expert_id": "deepseek-chat",
+"submission_id": "deepseek_whitebit_001",
+"schema_version": "1.0",
+"part_number": 2,
+"total_parts": 2,
+"content_type": "metadata"
+},
+"edge_cases_not_covered": [
+"Пользователь, который одновременно имеет 5+ активных стратегий и спрашивает про их взаимное влияние — в моих состояниях нет такого, т.к. это <1% трафика",
+"Трейдер с депозитом >100k USDT, который использует чат только для формальных запросов API или жалоб на лимиты — такие пользователи почти не пишут в чат стратегий",
+"Бот/скрипт, который автоматически опрашивает AI-радника каждые 5 минут — редкий случай, но возможен",
+"Пользователь, который не прошел KYC и не может активировать стратегии — спрашивает, но система отказывает, я это не описал",
+"Пользователь в состоянии мании (биполярное расстройство) — пишет 50 сообщений подряд, меняет мнение каждые 10 секунд — этический кейс, я его исключил"
+],
+"questions_for_whitebit_team": [
+"Есть ли у вас данные о том, какой процент пользователей, написавших в чат, в итоге активируют стратегию в течение 24 часов?",
+"Как часто пользователи возвращаются в чат после того, как стратегия принесла убыток? И как часто — после прибыли?",
+"Видите ли вы сезонность: например, в понедельник утром больше «новых confused», а в пятницу вечером — «greedy chaser»?",
+"Как долго пользователь считается «активным» в контексте чата — 5 минут после последнего сообщения или пока открыта вкладка? Это влияет на avg_session_duration",
+"Есть ли у вас разбивка пользователей по языку интерфейса (RU/UA/EN) — можно ли будет позже добавить это в контекст для AI?"
+],
+"classification_risks": [
+{"state_pair": ["newbie_confused", "just_testing"], "risk": "Оба могут писать короткие тестовые сообщения («привет», «тест»). Разница: у newbie_confused есть депозит >10 USDT и вопросы по сути, у just_testing — баланс почти ноль и нет продолжения."},
+{"state_pair": ["panic_position_holder", "greedy_chaser"], "risk": "Оба могут писать эмоционально и срочно. Разница: panic_position_holder имеет позицию в минусе, greedy_chaser — в плюсе или только входит."},
+{"state_pair": ["cautious_planner", "active_strategy_user"], "risk": "Оба пишут рационально, задают технические вопросы. Разница: у active_strategy_user уже есть активная стратегия (has_active_strategies=true), у cautious_planner — нет или только «sometimes»."}
+],
+"confidence_self_assessment": {
+"overall_confidence_pct": 82,
+"weakest_state_id": "active_strategy_user",
+"weakest_state_reason": "Это состояние сложнее всего отделить от cautious_planner без серверного контекста (has_active_strategies). Также я не уверен в типичных вопросах — реальные пользователи с активной стратегией, возможно, реже пишут в чат, чем я предположил."
+},
+"self_check": {
+"states_count_in_range_8_to_12": true,
+"traffic_share_sums_to_100": true,
+"all_post_response_actions_sum_to_100": true,
+"all_transition_matrix_rows_sum_to_100": true,
+"all_transitions_reference_existing_ids": true,
+"at_least_one_non_trading_state": true,
+"typical_questions_count_5_to_8_for_each": true,
+"any_field_skipped_or_templated": false
+}
+}
+
