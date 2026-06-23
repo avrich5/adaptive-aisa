@@ -8,12 +8,9 @@
 Мета: знайти патерн silent churn і кластеризувати користувачів ДО роботи з живими даними WhiteBIT.
 Призначення — породжувати гіпотези про відтік для перевірки на людях. Прихований вектор живе тільки в харнесі.
 
-## Машини (критично)
+## Машини
 - **skufs** (`ssh skufs-mac-mini` = `ssh skufs-vpn`) — робоча: git master, прогони, дані, БД через WireGuard.
-- **MacBook** — дзеркало (`~/adaptive_aisa`, git pull по HTTPS). НЕ робоча.
-- УВАГА: Desktop Commander виконується на MacBook. Файли правити на skufs через ssh.
-  Після правок на skufs зеркало бачить їх лише після `git pull`. read_file з MacBook показує СТАРЕ.
-- УВАГА: `ssh host "which X"` бреше (урізаний PATH). Перевіряти через `ssh host "zsh -lc ..."`.
+- **MacBook** — дзеркало (`~/adaptive_aisa`, git pull). Desktop Commander виконується тут, тому правки — на skufs через ssh (зеркало підхопить після `git pull`). `which` по ssh бреше — перевіряти через `zsh -lc`.
 
 ## Межі (незмінні)
 - frv GitLab (`git.forvest.software`, ID 290) — READ-ONLY для AI. Писати тільки в avrich5/adaptive-aisa (GitHub).
@@ -31,8 +28,8 @@
 - Сировина (OHLCV): `~/wbprd_skufs/base-states/data/parquet/{whitebit,binance}/{ASSET}_USDT_1d.parquet`.
 - Режими (для харнесу): `~/wbprd_skufs/base-states/data/pipeline_output/whitebit/all_regimes.parquet`
   (OHLCV + regime R1-R12 + фічі). Шлях у `config/data_sources.py` — не хардкодити.
-- УВАГА свіжість: all_regimes застарілий ~на 20 днів (до 06-03). Перед фінальними прогонами:
-  Docker Desktop на skufs (встановлено, демон не піднятий) → `docker compose up pipeline` у base-states.
+- Оновлення даних: `docker compose up pipeline` у `~/wbprd_skufs/base-states` (Docker Desktop на skufs).
+  Pipeline переписує all_regimes.parquet на місці. Останній прогін: 2026-06-23.
 - UNCLASSIFIED (~14% рядків) — політика: пропускаються генератором, Gate 2 документує.
 
 ## Відкрите (наступні кроки за пріоритетом)
