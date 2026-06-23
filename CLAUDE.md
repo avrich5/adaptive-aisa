@@ -41,13 +41,13 @@ adaptive_aisa/
 ├── data/              ← датасет точок (git-ignored: parquet, runs)
 ├── analysis/          ← кластеризація по спостережуваному + пошук патернів
 ├── reports/           ← вихід: чи пройшла мірка (три мовчання розійшлися?)
-├── tasks/             ← спеки для Claude Code
+├── tasks/             ← ЄДИНА точка читання тасків для Claude Code (всі CLAUDE_CODE / NN_TASK тут)
 └── .gitignore
 \`\`\`
 
 ## Джерела даних (зовнішні залежності, не вміст репо)
 
-- **OHLCV-свічки** — `base-states-dev/data/whitebit/` і `/binance/`: 7 активів
+- **OHLCV-свічки** — `~/wbprd_skufs/base-states/data/parquet/{whitebit,binance}/` (на skufs — РОБОЧИЙ шлях; у MacBook-дзеркалі шлях інший): 7 активів
   (BTC ETH SOL XRP DOGE BNB ADA), `*_USDT_1d.parquet`, daily, ~1517 рядків
   (2022-04-28 -> 2026-06-22). Колонки: open/high/low/close/volume/quote_volume/trades.
   Це СИРОВИНА, не режими.
@@ -83,8 +83,8 @@ adaptive_aisa/
 ## Робочий цикл (порядок)
 
 1. Крок 1 — консенсус-таксономія станів (47 → 8–12). Передумова, ще НЕ зроблено.
-2. `harness/01_TASK_PROJECT_SETUP.md` — git init + remote avrich5/adaptive-aisa.
-3. `harness/02_TASK_HARNESS_BUILD.md` — збірка генератора (шар 1) → таблиця точок.
+2. `tasks/01_TASK_PROJECT_SETUP.md` — git init + remote avrich5/adaptive-aisa.
+3. `tasks/02_TASK_HARNESS_BUILD.md` — збірка генератора (шар 1) → таблиця точок.
 4. Прогони через набір вікон різних типів → накопичення датасету в `data/`.
 5. `analysis/` — кластеризація по спостережуваному + перевірка мірки.
 6. Розвилка: мірка пройдена → готувати перехід на живі дані; ні → добрати спостережувані поля.
@@ -102,3 +102,10 @@ adaptive_aisa/
 - Призначення вибірки: пошук патернів + кластеризація; політика — наступний етап.
 - Джерело режимів (parquet vs БД vs pipeline base-states-dev) — резолвити на перших прогонах.
 - ВІДКРИТЕ: Python 3.9.6 на skufs, uv нема — рішення по venv до збірки харнесу.
+
+### 2026-06-23 — репозиторій оформлено + обвязка
+- Перший push: avrich5/adaptive-aisa, main, коміт da247e4 (52 файли).
+- Хуки на ПРОЄКТНОМУ рівні `.claude/settings.json` (глобальний ~/.claude не чіпали).
+- Джерело даних уточнено: OHLCV 7 активів × 2 біржі в base-states-dev/data/, режими рахує pipeline.
+- Playbook: ~/.claude/NEW_PROJECT_PLAYBOOK.md.
+- ВІДКРИТЕ далі: синхронізація MacBook-дзеркала; точка читання tasks для Claude Code; перший код E2E.
