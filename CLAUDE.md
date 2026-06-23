@@ -134,3 +134,19 @@ adaptive_aisa/
 - ПРАВИЛО: parquet оновлюються деінде (pipeline base-states). Перед прогоном звіряти СВІЖІСТЬ
   (`df.index.max()`), не лише наявність файла. Дані застарівають — перевіряти дату, не тільки шлях.
 - Відкрите: автоматизувати оновлення parquet на skufs (зараз ручний scp з MacBook-дзеркала).
+
+### 2026-06-23 — ПРАВИЛЬНА модель даних (parquet = вихід сервісу, не файл для копіювання)
+- parquet — це ВИХІД base-states pipeline, а не статичний файл. Свіжість забезпечується
+  ЗАПУСКОМ сервісу на skufs, а не scp між машинами. MacBook ні до чого (його свіжість випадкова).
+- Механізм: `~/wbprd_skufs/base-states` — docker-compose, сервіс `pipeline` (one-shot:
+  fetch->classify->output), монтує `./data:/app/data` -> пише parquet у
+  `~/wbprd_skufs/base-states/data/parquet/` НА МІСЦІ.
+- Команда генерації: `python -m pipeline.main --market all` (entrypoint Dockerfile.pipeline).
+- БЛОКЕР зараз: `docker` на skufs НЕ встановлено -> compose не підняти. Тому parquet застрягли
+  на 06-02. Мій scp 06-22 — КОСТИЛЬ, не рішення.
+- Pipeline хоче python 3.13 (Dockerfile), на skufs системний 3.9.6 -> прямий запуск без docker
+  під питанням сумісності.
+- ВИБІР (до реальних прогонів harness): (а) поставити docker на skufs і гнати compose, або
+  (б) підняти pipeline-python у venv 3.13. Обрати ОДИН шлях, костиль-scp прибрати.
+- Принцип: всі сервіси ~/wbprd_skufs можна підняти локально на skufs; тоді дані генеруються
+  свіжими там, де треба. Дані = функція запущених сервісів, не синхронізація файлів.
