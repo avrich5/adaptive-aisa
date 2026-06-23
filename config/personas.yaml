@@ -1,0 +1,205 @@
+# 7 персон харнесу. Статус: DRAFT — параметри уточнюються після консенсус-таксономії.
+# Джерело структури: tasks/02_TASK_HARNESS_BUILD.md §2, §3.
+# Після консенсусу: оновити initial_vector + base_weights по canonical states;
+#   структура файлу і код не змінюється.
+
+personas:
+
+  - id: anxious_silent
+    name: Тривожний мовчун
+    # DRAFT: medium risk, стежить за ринком, мовчить — ядро silent-churn
+    risk: medium
+    communicativeness: false
+    # Стартовий вектор (DRAFT — уточнити по консенсусу)
+    initial_vector:
+      anxiety: 0.35
+      trust: 0.55
+      market_understanding: 0.70
+      regime_awareness: 0.60
+      exit_propensity: 0.20
+    # Чутливість осей до ринкового контексту (DRAFT)
+    anxiety_sensitivity: 0.70      # 0..1: як швидко anxiety реагує на просадку
+    exit_sensitivity: 0.75         # 0..1: як швидко exit_propensity зростає
+    regime_awareness_growth: 0.005 # delta/checkpoint: повільне зростання усвідомленості
+    # Базові ваги дій (DRAFT; сума не обов'язково 1.0 — нормалізується в коді)
+    base_weights:
+      silence: 0.72
+      deactivate_strategy: 0.06
+      pause_strategy: 0.07
+      change_capital: 0.06
+      activate: 0.03
+      add_strategy: 0.02
+      ignore: 0.02
+      new_message: 0.01
+      click_card: 0.01
+      ask_followup: 0.00
+      leave_chat: 0.00
+      complain: 0.00
+
+  - id: blind_holder
+    name: Сліпий держатель
+    # DRAFT: risky, не розуміє ринку, мовчить — найнебезпечніший для churn
+    risk: risky
+    communicativeness: false
+    initial_vector:
+      anxiety: 0.20
+      trust: 0.55
+      market_understanding: 0.15
+      regime_awareness: 0.10
+      exit_propensity: 0.15
+    anxiety_sensitivity: 0.30      # повільна реакція (не розуміє)
+    exit_sensitivity: 0.50
+    regime_awareness_growth: 0.001
+    base_weights:
+      silence: 0.88
+      deactivate_strategy: 0.04
+      pause_strategy: 0.03
+      change_capital: 0.02
+      activate: 0.01
+      add_strategy: 0.01
+      ignore: 0.01
+      new_message: 0.00
+      click_card: 0.00
+      ask_followup: 0.00
+      leave_chat: 0.00
+      complain: 0.00
+
+  - id: panicker
+    name: Панікер-крикун
+    # DRAFT: risky, не стежить, пише — panic_position_holder
+    risk: risky
+    communicativeness: true
+    initial_vector:
+      anxiety: 0.65
+      trust: 0.30
+      market_understanding: 0.25
+      regime_awareness: 0.20
+      exit_propensity: 0.50
+    anxiety_sensitivity: 0.90
+    exit_sensitivity: 0.85
+    regime_awareness_growth: 0.002
+    base_weights:
+      silence: 0.08
+      deactivate_strategy: 0.18
+      pause_strategy: 0.06
+      change_capital: 0.04
+      activate: 0.02
+      add_strategy: 0.01
+      ignore: 0.03
+      new_message: 0.28
+      click_card: 0.08
+      ask_followup: 0.08
+      leave_chat: 0.08
+      complain: 0.06
+
+  - id: rational_optimizer
+    name: Розважливий оптимізатор
+    # DRAFT: medium, стежить, пише — strategy_optimizer
+    risk: medium
+    communicativeness: true
+    initial_vector:
+      anxiety: 0.20
+      trust: 0.70
+      market_understanding: 0.80
+      regime_awareness: 0.80
+      exit_propensity: 0.15
+    anxiety_sensitivity: 0.35
+    exit_sensitivity: 0.40
+    regime_awareness_growth: 0.010
+    base_weights:
+      silence: 0.15
+      deactivate_strategy: 0.06
+      pause_strategy: 0.05
+      change_capital: 0.12
+      activate: 0.08
+      add_strategy: 0.07
+      ignore: 0.05
+      new_message: 0.16
+      click_card: 0.10
+      ask_followup: 0.14
+      leave_chat: 0.01
+      complain: 0.01
+
+  - id: passive_satisfied
+    name: Пасивний задоволений
+    # DRAFT: low risk, не стежить, мовчить — контроль «мовчання != churn»
+    risk: low
+    communicativeness: false
+    initial_vector:
+      anxiety: 0.10
+      trust: 0.75
+      market_understanding: 0.30
+      regime_awareness: 0.10
+      exit_propensity: 0.08
+    anxiety_sensitivity: 0.20
+    exit_sensitivity: 0.25
+    regime_awareness_growth: 0.001
+    base_weights:
+      silence: 0.90
+      deactivate_strategy: 0.02
+      pause_strategy: 0.02
+      change_capital: 0.03
+      activate: 0.01
+      add_strategy: 0.01
+      ignore: 0.01
+      new_message: 0.00
+      click_card: 0.00
+      ask_followup: 0.00
+      leave_chat: 0.00
+      complain: 0.00
+
+  - id: fomo_chaser
+    name: FOMO-чейзер
+    # DRAFT: risky, не стежить, пише — fomo_chaser
+    risk: risky
+    communicativeness: true
+    initial_vector:
+      anxiety: 0.25
+      trust: 0.45
+      market_understanding: 0.20
+      regime_awareness: 0.15
+      exit_propensity: 0.25
+    anxiety_sensitivity: 0.60
+    exit_sensitivity: 0.65
+    regime_awareness_growth: 0.002
+    base_weights:
+      silence: 0.12
+      deactivate_strategy: 0.10
+      pause_strategy: 0.04
+      change_capital: 0.08
+      activate: 0.10
+      add_strategy: 0.18
+      ignore: 0.05
+      new_message: 0.14
+      click_card: 0.10
+      ask_followup: 0.05
+      leave_chat: 0.02
+      complain: 0.02
+
+  - id: curious_newbie
+    name: Новачок-тестувальник
+    # DRAFT: low risk, не розуміє, пише — curious_newbie (контроль)
+    risk: low
+    communicativeness: true
+    initial_vector:
+      anxiety: 0.40
+      trust: 0.35
+      market_understanding: 0.20
+      regime_awareness: 0.10
+      exit_propensity: 0.55
+    anxiety_sensitivity: 0.65
+    exit_sensitivity: 0.80
+    regime_awareness_growth: 0.008
+    base_weights:
+      silence: 0.10
+      deactivate_strategy: 0.14
+      pause_strategy: 0.06
+      change_capital: 0.04
+      activate: 0.05
+      add_strategy: 0.05
+      ignore: 0.06
+      new_message: 0.18
+      click_card: 0.14
+      ask_followup: 0.16
+      leave_chat: 0.01
+      complain: 0.01

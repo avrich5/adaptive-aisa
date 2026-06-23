@@ -1,0 +1,6 @@
+# Harness dependencies (system Python 3.9.6 on skufs has most already)
+pandas>=2.0
+pyarrow>=10.0
+pyyaml>=6.0
+numpy>=1.24
+# anthropic  # optional: for LLM-based reasoning (future enhancement)
