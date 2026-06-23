@@ -170,3 +170,19 @@ adaptive_aisa/
   - +розділ 7a Інтеграція з проєктом: skufs, config-шляхи, venv/docker, gates перед data/,
     вихід у data/ (git-ignored), таск з tasks/ vs описи в harness/.
   - залежності: all_regimes прибрано, додано посилання на reports/drawdown_windows.md (25 вікон).
+
+
+### 2026-06-23 — TASK 02 (HARNESS_BUILD) ВИКОНАНО (commit 6b4bf05)
+- Реалізовано шар 1 генератора: 7 персон × 5 drawdown-вікон → таблиця рядків-точок.
+- Всі файли харнесу в harness/, конфіги в config/. Дані в data/runs/ (git-ignored).
+- all_regimes.parquet ІСНУЄ (виявлено в pipeline_output/whitebit/, до 2026-06-03).
+  Версія ~20 днів застаріла. Оновлення: Docker Desktop → docker compose up pipeline.
+- UNCLASSIFIED (~14% рядків parquet) — явна політика: пропуск в generate_run(), Gate 2 відхиляє.
+  R12_REGIME_TRANSITION — включено (valid_regime).
+- Параметри персон: DRAFT. Calibrate після consensus_user_states.json.
+  Структура не зміниться — тільки числа в config/personas.yaml.
+- Smoke test: 7 persona × 5 windows × seed=42 → 430 рядків за ~2с.
+- ВІДКРИТЕ: консенсус-таксономія (tasks/CLAUDE_CODE_TASK_CONSENSUS.md) — передумова
+  для фінального калібрування меж персон. Data ready (47 states, 5 experts).
+- Наступний крок по EXECUTION_ORDER: прогони через набір вікон → накопичення датасету
+  (кроки 4-5), потім кластеризація (analysis/).
