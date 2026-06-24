@@ -317,3 +317,21 @@ The Inquisitor does not encourage. It audits.
 **Наслідок:** епізоди потрібні для НАВЧАННЯ bandit, не для відновлення belief. Кількість епізодів — параметр навчання, не умова ідентифікованості.
 **Зафіксовано:** concept/00_PITCH.md (якір one-liner+пітч+ланцюг, інквізитор звіряє щосесії).
 **ONE-LINER проєкту:** синтетичні трейдери для дослідження попиту і тренування політик маркетингу через адаптивні рекомендації AI-Адвайзера.
+
+
+### 2026-06-24 — P1: per_regime_display аудит по коду (борг закрито)
+**Де обчислюється:** `llm-training-data-miner/.../factory/benchmark/regime_tagger.py::compute_regime_breakdowns()`.
+**Формула:** `roi_pct = sum(trade.Returns за режим) / max_pos_actual * 100` — простий %.
+**Крива/період:** equity з trading-report.csv, вікно 3Y (BENCHMARK_LOOKBACK_YEARS=3), anchor = experiment_created_at UTC midnight. Scalping-pnl → qpnls.csv.
+**Fitness:** ДВА різних поняття: (1) `roi_avg`/`roi_pct` у strategy_benchmark — простий %, порівнянний між усіма рядками; (2) `best_fitness` в ATSA — `fitnessTanh(penalty, reward, sensitivity)` з brute-force, tanh-комбінація ROI+risk, параметри різняться між прогонами (prod: [0.1, 0.25, 5] або [0.15, 0.25, 4]) → НЕСУМІСНИЙ між прогонами з різними параметрами. corr(best_fitness, roi_avg)=0.14–0.19.
+**Сумісність N=4056:** `per_regime_display.roi_pct` і `roi_avg` — СУМІСНІ. `best_fitness` — НЕСУМІСНИЙ між прогонами.
+**Та сама крива в харнесі:** НІ. Поточний харнес (TASK 02) = OHLCV drawdown. Benchmark = qpnls (strategy equity). До TASK 05 groundtruth-звірка хибна.
+**Детально:** GROUNDTRUTH.md.
+
+### 2026-06-24 — P2: уточнення статусу STOP_TEST (append-only)
+Попередній запис (2026-06-23) подає rho=0.323/BRANCH 1 як вердикт. Уточнення:
+**STOP_TEST = GO/NO-GO на ПЕРЕДУМОВИ, не тест фальсифікованості концепту.**
+Передумови: (1) розрив у даних існує (топ-3 інверсія=100%); (2) groundtruth існує (qpnls, 3Y).
+Вердикт передумов: GO.
+rho=0.323/поріг 0.3 — побічний факт рівня 3 (підказка для майбутніх політик: roi_avg слабко передбачає per-regime), НЕ критерій старту харнесу.
+Справжня фальсифікованість концепту: перший Gate харнесу (TASK 04) — чи узгоджені trust-реакції з фактом кривої. Цей gate ОБОВ'ЯЗКОВО може провалитись.
